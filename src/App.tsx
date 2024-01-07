@@ -1,14 +1,15 @@
 import './App.css'
 import NavBar from "./components/navBar";
+import ContentPage from "./components/contentPage";
+import ContentFooter from "./components/contentFooter";
 
 function App() {
 
   return (
     <div className="min-h-full">
         <NavBar/>
-        <h1 className="text-6xl font-bold underline text-red-600">
-            simple react app with typescript and tailwind css sample
-        </h1>
+        <ContentPage/>
+        <ContentFooter/>
     </div>
   )
 }
