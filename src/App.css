@@ -1,0 +1,16 @@
+/*content page*/
+main{
+    min-height: 100dvh;
+}
+
+/*cards*/
+.card-spaces{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+/*card list*/
+.card-list{
+    width: 90%;
+    margin: auto;
+}
