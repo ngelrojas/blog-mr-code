@@ -2,6 +2,7 @@ export interface navigationMenuProps {
     name: string;
     href: string;
     current: boolean;
+    subcategories?: navigationMenuProps[];
 }
 
 export interface ClassNamesParams {
