@@ -1,9 +1,21 @@
 import { navigationMenuProps } from "../../types/utils.interface";
 import {classNames} from "../../types/utils.functions";
 import {Disclosure} from "@headlessui/react";
+import { Categories } from "../../constantBlog";
 
-// TODO: fix the list of categories, because it is not showing like a designed menu
 export default function NavigationMenu({navigation}: { navigation: navigationMenuProps[] }) {
+    const chevronDown = (categoryName: string) => {
+        return (
+            <>
+                {categoryName}<span className="float-right mt-2 ml-0.5">
+                    <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                         stroke="currentColor" className="w-3 h-3">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                    </svg>
+                </span>
+            </>
+        )
+    }
 
     return (
         <div className="hidden md:block relative">
@@ -23,11 +35,13 @@ export default function NavigationMenu({navigation}: { navigation: navigationMen
                             })}
                             aria-current={item.current ? 'page' : undefined}
                         >
-                            {item.name}
+                            {item.name === Categories ? (
+                                    chevronDown(item.name)):
+                                (item.name)}
                         </Disclosure.Button>
                         {item.subcategories && (
                             <Disclosure.Panel>
-                                <div className="flex space-y-1 px-2 pb-3 pt-2 sm:px-3 bg-gray-800 absolute z-50 top-full left-0">
+                                <div className="w-max grid grid-cols-3 gap-3 items-center space-y-1 px-2 pb-3 pt-2 sm:px-3 bg-gray-800 absolute z-50 top-full left-0">
                                     {item.subcategories.map((subItem) => (
                                         <Disclosure.Button
                                             key={subItem.name}
@@ -38,7 +52,7 @@ export default function NavigationMenu({navigation}: { navigation: navigationMen
                                                     subItem.current
                                                         ? 'bg-gray-900 text-white'
                                                         : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                    'items-center rounded-md px-3 py-2 text-base font-medium',
+                                                    ' rounded-md px-3 py-2 text-base font-medium transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none',
                                                 ],
                                             })}
                                             aria-current={subItem.current ? 'page' : undefined}
