@@ -4,10 +4,25 @@ import SearchBox from "../searchBox";
 import NavigationMenu from "../navigationMenu";
 import { classNames } from "../../types/utils.functions";
 import MrCodeLogo from "../logo";
+import { navigationMenuProps } from "../../types/utils.interface";
 
-const navigation = [
+
+const navigation: navigationMenuProps[] = [
     { name: 'Home', href: '#', current: true },
-    { name: 'Categories', href: '#', current: false },
+    {
+        name: 'Categories',
+        href: '#',
+        current: false,
+        subcategories: [
+            { name: 'Python', href: '/python', current: false },
+            { name: 'SQL', href: '/sql', current: false },
+            { name: 'DevOps', href: '/devops', current: false },
+            { name: 'JavaScript', href: '/javascript', current: false },
+            { name: 'RAG', href: '/rag', current: false },
+            { name: 'Rust', href: '/rust', current: false },
+            { name: 'Machine Learning', href: '/machine-learning', current: false },
+        ],
+    },
     { name: 'News', href: '#', current: false },
 ]
 
@@ -54,17 +69,47 @@ export default function NavBar() {
                         <Disclosure.Panel className="md:hidden">
                             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                                 {navigation.map((item) => (
-                                    <Disclosure.Button
-                                        key={item.name}
-                                        as="a"
-                                        href={item.href}
-                                        className={classNames(
-                                            {classes : [item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']}
+                                    <div key={item.name}>
+                                        <Disclosure.Button
+                                            as="a"
+                                            href={item.href}
+                                            className={classNames({
+                                                classes: [
+                                                    item.current
+                                                        ? 'bg-gray-900 text-white'
+                                                        : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                    'block rounded-md px-3 py-2 text-base font-medium',
+                                                ],
+                                            })}
+                                            aria-current={item.current ? 'page' : undefined}
+                                        >
+                                            {item.name}
+                                        </Disclosure.Button>
+                                        {item.subcategories && (
+                                            <Disclosure.Panel>
+                                                <div className="ml-4 space-y-1">
+                                                    {item.subcategories.map((subItem) => (
+                                                        <Disclosure.Button
+                                                            key={subItem.name}
+                                                            as="a"
+                                                            href={subItem.href}
+                                                            className={classNames({
+                                                                classes: [
+                                                                    subItem.current
+                                                                        ? 'bg-gray-900 text-white'
+                                                                        : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                                    'block rounded-md px-3 py-2 text-base font-medium',
+                                                                ],
+                                                            })}
+                                                            aria-current={subItem.current ? 'page' : undefined}
+                                                        >
+                                                            {subItem.name}
+                                                        </Disclosure.Button>
+                                                    ))}
+                                                </div>
+                                            </Disclosure.Panel>
                                         )}
-                                        aria-current={item.current ? 'page' : undefined}
-                                    >
-                                        {item.name}
-                                    </Disclosure.Button>
+                                    </div>
                                 ))}
                             </div>
                             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">

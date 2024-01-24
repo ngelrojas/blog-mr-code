@@ -3,17 +3,7 @@ import ModalWindow from "../modalWindow";
 import CategoryTime from "../categoryTime";
 import Author from "../author";
 import DescriptionTitle from "../descriptionTitle";
-
-interface Post{
-    id: number,
-    title: string,
-    href: string,
-    description: string,
-    date: string,
-    datetime: string,
-    category: { title: string, href: string },
-    author: {name: string, role: string, href: string, imageUrl: string}
-}
+import { Post } from "../../types/utils.interface.ts";
 
 export default function Card(post: Post) {
 
