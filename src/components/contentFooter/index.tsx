@@ -1,6 +1,12 @@
+import MrCodeLogo from "../logo";
+import { FaFacebook } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa6";
+
 export default function ContentFooter () {
     return (
-        <footer>
+        <footer className="relative pb-6">
             <div className="footer-oval">
                 <div className="custom-shape-divider-top-1705452502 bg-gray-800">
                     <svg data-name="Layer 1" viewBox="0 0 1200 120"
@@ -12,11 +18,34 @@ export default function ContentFooter () {
                 </div>
 
                 {/*check code below because it's not working, I mean is not centered*/}
-                <div className="absolute top-80 text-white">
-                    <div className="grid max-w-3xl">
-                        <div className="justify-items-center">
-                            <h1>footer</h1>
+                <div className="relative">
+                    <div className="absolute top-72 text-white w-full md:w-11/12 pl-4 md:pl-40">
+                        <div className="grid grid-cols-1 md:grid-cols-2">
+                            <div className="grid grid-rows-2">
+                                <div className="justify-items-center">
+                                    <MrCodeLogo />
+                                </div>
+                                <ul className="flex gap-4 md:gap-20 items-center">
+                                    <li><a href="#"><FaFacebook size={25} /></a></li>
+                                    <li><a href="#"><FaXTwitter size={20}/></a></li>
+                                    <li><a href="#"><FaLinkedin size={25}/></a></li>
+                                    <li><a href="#"><FaYoutube size={35}/></a></li>
+                                </ul>
+                            </div>
+                            <div className="flex flex-col justify-between items-end justify-items-end">
+                                <form className="pt-4 md:pt-20 inline-flex float-right w-full ">
+                                    <input className="text-blue-950 ml-4 md:ml-28 w-9/12 mr-2 md:mr-6 px-2 md:px-4 py-1 md:py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                           type="text"
+                                           placeholder="Email"
+                                    />
+                                    <button className=" w-24 md:w-40 px-2 md:px-4 py-1 md:py-2 bg-blue-500 text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">Subscribe</button>
+                                </form>
+                                <div className="pl-4 md:pl-28 w-full text-sm mt-2">Get our newsletter weekly</div>
+                            </div>
                         </div>
+                    </div>
+                    <div className="absolute grid top-96 w-full mt-20">
+                        <h1 className="text-center text-white">Copyright 2024</h1>
                     </div>
                 </div>
             </div>

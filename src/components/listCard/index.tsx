@@ -125,7 +125,7 @@ const _posts = [
     },
 ]
 
-const postsPerPage = 2;
+const postsPerPage = 3;
 export default function ListCard (){
     const [posts, setPosts] = useState<Post[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
