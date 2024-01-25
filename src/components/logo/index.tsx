@@ -1,6 +1,6 @@
 export default function MrCodeLogo(){
     return (
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 bg-gray-800">
             <h1 className="text-white text-3xl">MR</h1>
             <h4 className="text-white">CODE</h4>
         </div>
