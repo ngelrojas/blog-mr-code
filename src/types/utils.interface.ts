@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface navigationMenuProps {
     name: string;
     href: string;
@@ -27,4 +29,8 @@ export interface PaginationBtnProps {
     currentPage: number;
     postsPerPage: number;
     posts: any[];
+}
+
+export interface WebSiteLayoutProps {
+    children?: React.ReactNode;
 }
