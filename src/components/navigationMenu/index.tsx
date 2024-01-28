@@ -47,7 +47,7 @@ export default function NavigationMenu({navigation}: { navigation: navigationMen
                                                     {item.subcategories.map((subItem) => (
                                                         <a
                                                             key={subItem.name}
-                                                            href={subItem.href}
+                                                            href={`/category/${subItem.href}`}
                                                             className={classNames({
                                                                 classes: [
                                                                     subItem.current

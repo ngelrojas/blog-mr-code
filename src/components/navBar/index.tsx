@@ -9,19 +9,19 @@ import { navigationMenuProps } from "../../types/utils.interface";
 
 
 const navigation: navigationMenuProps[] = [
-    { name: 'HOME', href: '#', current: true },
+    { name: 'HOME', href: '/home', current: true },
     {
         name: 'CATEGORIES',
         href: '#',
         current: false,
         subcategories: [
-            { name: 'Python', href: '/python', current: false },
-            { name: 'SQL', href: '/sql', current: false },
-            { name: 'DevOps', href: '/devops', current: false },
-            { name: 'JavaScript', href: '/javascript', current: false },
-            { name: 'RAG', href: '/rag', current: false },
-            { name: 'Rust', href: '/rust', current: false },
-            { name: 'Machine Learning', href: '/machine-learning', current: false },
+            { name: 'Python', href: 'python', current: false },
+            { name: 'SQL', href: 'sql', current: false },
+            { name: 'DevOps', href: 'devops', current: false },
+            { name: 'JavaScript', href: 'javascript', current: false },
+            { name: 'RAG', href: 'rag', current: false },
+            { name: 'Rust', href: 'rust', current: false },
+            { name: 'Machine Learning', href: 'machine-learning', current: false },
         ],
     },
     { name: 'NEWS', href: '#', current: false },
@@ -114,7 +114,7 @@ export default function NavBar() {
                                                         <Disclosure.Button
                                                             key={subItem.name}
                                                             as="a"
-                                                            href={subItem.href}
+                                                            href={`/category/${subItem.href}`}
                                                             className={classNames({
                                                                 classes: [
                                                                     subItem.current
