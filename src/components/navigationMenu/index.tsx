@@ -1,9 +1,17 @@
+import { useState } from "react";
 import { navigationMenuProps } from "../../types/utils.interface";
 import {classNames} from "../../types/utils.functions";
 import {Disclosure} from "@headlessui/react";
 import { Categories } from "../../constantBlog";
+import {useContext} from "react";
+import {ThemeContext} from "../../themeContext";
 
 export default function NavigationMenu({navigation}: { navigation: navigationMenuProps[] }) {
+    const [showPanel, setShowPanel] = useState(false);
+
+    const themeContext = useContext(ThemeContext);
+    if(!themeContext) throw new Error('useThemeContext must be used within a ThemeProvider');
+    const {theme} = themeContext;
     const chevronDown = (categoryName: string) => {
         return (
             <>
@@ -17,23 +25,28 @@ export default function NavigationMenu({navigation}: { navigation: navigationMen
         )
     }
 
+    const handlePanel = () => {
+        setShowPanel(!showPanel);
+    }
+
     return (
         <div className="hidden md:block relative">
             <div className="ml-32 flex items-baseline space-x-4">
                 {navigation.map((item) => (
-                    <div className="relative group" key={item.name}>
+                    <div className='relative group'  key={item.name}>
                         {item.name === Categories ? (
                             <Disclosure>
                                 {() => (
                                     <>
                                         <Disclosure.Button
+                                            onClick={handlePanel}
                                             as="a"
                                             href={item.href}
                                             className={classNames({
                                                 classes: [
-                                                    item.current
-                                                        ? 'bg-gray-900 text-white'
-                                                        : 'text-black hover:bg-gray-50 hover:text-black',
+                                                    theme === 'light'
+                                                        ? 'bg-white text-black'
+                                                        : 'bg-pages text-white hover:bg-gray-50 hover:text-black',
                                                     'block rounded px-3 py-2 text-sm font-medium',
                                                 ],
                                             })}
@@ -42,17 +55,17 @@ export default function NavigationMenu({navigation}: { navigation: navigationMen
                                             {chevronDown(item.name)}
                                         </Disclosure.Button>
                                         {item.subcategories && (
-                                            <Disclosure.Panel>
-                                                <div className="w-max grid grid-cols-3 gap-3 items-center space-y-1 px-2 pb-3 pt-2 sm:px-3 shadow-md bg-white absolute z-50 top-full left-0">
+                                            <Disclosure.Panel className={`fadeIn ${showPanel ? 'slide-bottom show':''}`}>
+                                                <div className={`rounded border-white w-max grid grid-cols-3 gap-3 items-center space-y-1 px-2 pb-3 pt-2 sm:px-3 shadow-md absolute z-50 top-full left-0 ${theme === 'light' ? 'bg-white text-black': 'bg-pages text-white'}`}>
                                                     {item.subcategories.map((subItem) => (
                                                         <a
                                                             key={subItem.name}
                                                             href={`/category/${subItem.href}`}
                                                             className={classNames({
                                                                 classes: [
-                                                                    subItem.current
-                                                                        ? 'bg-gray-400 text-black'
-                                                                        : 'text-black hover:bg-gray-100 hover:text-black',
+                                                                    theme === 'light'
+                                                                        ? 'bg-white text-black hover:bg-gray-100 hover:text-black'
+                                                                        : 'bg-pages text-white hover:bg-gray-100 hover:text-black',
                                                                     'rounded px-3 py-2 text-base font-medium transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none',
                                                                 ],
                                                             })}
@@ -72,9 +85,9 @@ export default function NavigationMenu({navigation}: { navigation: navigationMen
                                 href={item.href}
                                 className={classNames({
                                     classes: [
-                                        item.current
-                                            ? ' text-black hover:bg-gray-50 hover:text-black'
-                                            : 'text-black hover:bg-gray-50 hover:text-black',
+                                        theme === 'light'
+                                            ? 'bg-white text-black hover:bg-gray-50 hover:text-black'
+                                            : 'bg-pages text-white hover:bg-gray-50 hover:text-black',
                                         'block rounded-md px-3 py-2 text-sm font-medium',
                                     ],
                                 })}

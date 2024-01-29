@@ -2,13 +2,16 @@ import './App.css'
 import { RouterProvider } from "react-router-dom";
 import { webSiteRoutes } from "./routes/webSite";
 import { WebSiteLayout } from "./layouts/webSite";
+import { ThemeProvider} from "./themeContext";
 
 function App() {
 
   return (
-    <WebSiteLayout>
-        <RouterProvider router={webSiteRoutes} />
-    </WebSiteLayout>
+      <ThemeProvider>
+        <WebSiteLayout>
+            <RouterProvider router={webSiteRoutes} />
+        </WebSiteLayout>
+      </ThemeProvider>
   )
 }
 

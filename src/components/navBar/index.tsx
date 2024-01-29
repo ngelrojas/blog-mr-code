@@ -1,4 +1,4 @@
-import {useState } from "react";
+import {useState, useContext } from "react";
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import SearchBox from "../searchBox";
@@ -7,6 +7,9 @@ import { classNames } from "../../types/utils.functions";
 import MrCodeLogo from "../logo";
 import { navigationMenuProps } from "../../types/utils.interface";
 
+import { ThemeContext } from "../../themeContext";
+
+type Theme = 'light' | 'dark';
 
 const navigation: navigationMenuProps[] = [
     { name: 'HOME', href: '/home', current: true },
@@ -28,6 +31,9 @@ const navigation: navigationMenuProps[] = [
 ]
 
 export default function NavBar() {
+    const themeContext = useContext(ThemeContext);
+    if(!themeContext) throw new Error('useThemeContext must be used within a ThemeProvider');
+    const {theme, setTheme} = themeContext;
     const [darkMode, setDarkMode] = useState(false);
     const handleSearch = (query: string) => {
         console.log('Searching for:', query);
@@ -36,7 +42,7 @@ export default function NavBar() {
     const iconMode = (dark: boolean) => {
         if(dark) {
             return (<svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                     stroke="currentColor" className="w-6 h-6 bg-gray-800 text-white">
+                     stroke="currentColor" className="w-6 h-6 bg-pages text-white">
                     <path strokeLinecap="round" strokeLinejoin="round"
                           d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
                 </svg>)
@@ -50,13 +56,14 @@ export default function NavBar() {
 
     const handleClick = () => {
         setDarkMode(!darkMode);
+        setTheme((prevTheme: Theme) => prevTheme === 'light' ? 'dark' : 'light');
     }
 
     return (
-        <Disclosure as="nav" className="bg-white border border-gray-300">
+        <Disclosure as="nav" className={`border-b border-gray-300 ${theme === 'light' ? 'bg-white text-black' : 'bg-pages text-white'}`}>
             {({open}) => (
                 <>
-                    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${theme === 'light' ? 'bg-white text-black' : 'bg-pages text-white'}`}>
                         <div className="flex h-16 items-center justify-between">
                             <div className="flex items-center">
                                 <MrCodeLogo />

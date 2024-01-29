@@ -17,7 +17,7 @@ export const webSiteRoutes = createBrowserRouter([
         element: <Category />,
     },
     {
-        path: 'category/description/:slug',
+        path: 'category/:description/:slug',
         element: <Description />,
     },
 ])

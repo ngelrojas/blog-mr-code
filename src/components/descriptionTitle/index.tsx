@@ -1,19 +1,19 @@
-interface DescriptionTitleProps {
-    href: string,
-    title: string,
-    description: string
-}
+import React from "react";
+import { DescriptionTitlePropsI } from "../../types/utils.interface";
 
-export default function DescriptionTitle(post: DescriptionTitleProps) {
+const DescriptionTitle: React.FC<DescriptionTitlePropsI> = ({desTitle, theme}) => {
+
     return (
-        <div className="group relative">
-            <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                <a href={post.href}>
+        <div className="group relative mt-3 mb-3">
+            <h3 className={`mt-3 text-lg font-semibold leading-6 group-hover:text-gray-400 ${theme === 'light' ? 'text-black': 'text-white'}`}>
+                <a href={desTitle.href}>
                     <span className="absolute inset-0"/>
-                    {post.title}
+                    {desTitle.title}
                 </a>
             </h3>
-            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.description}</p>
+            <p className={`mt-5 line-clamp-3 text-sm leading-6 ${theme === 'light' ? 'text-black' : 'text-white'}`}>{desTitle.description}</p>
         </div>
     )
 }
+
+export default DescriptionTitle;

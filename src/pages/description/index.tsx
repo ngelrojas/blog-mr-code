@@ -1,11 +1,11 @@
 import { useParams} from "react-router-dom";
 
 export default function Description() {
-    const { slug } = useParams();
+    const { slug, description } = useParams();
 
     return(
         <div>
-            <h1>Description {slug}</h1>
+            <h1>Description {description} - {slug} </h1>
 
         </div>
     )
