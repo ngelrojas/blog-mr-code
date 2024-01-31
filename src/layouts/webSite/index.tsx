@@ -3,6 +3,7 @@ import NavBar from "../../components/navBar";
 import ContentFooter from "../../components/contentFooter";
 import { WebSiteLayoutProps } from "../../types/utils.interface";
 import {ThemeContext} from "../../themeContext";
+import ChatBot from "../../components/chatBot";
 
 export const WebSiteLayout:React.FC<WebSiteLayoutProps> = ({children}) => {
     const themeContext = useContext(ThemeContext);
@@ -15,6 +16,7 @@ export const WebSiteLayout:React.FC<WebSiteLayoutProps> = ({children}) => {
             <Fragment>
                 <NavBar />
                     {children}
+                <ChatBot />
                 <ContentFooter theme={theme} />
             </Fragment>
         </div>
