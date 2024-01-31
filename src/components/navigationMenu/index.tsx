@@ -1,17 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { navigationMenuProps } from "../../types/utils.interface";
 import {classNames} from "../../types/utils.functions";
 import {Disclosure} from "@headlessui/react";
 import { Categories } from "../../constantBlog";
-import {useContext} from "react";
-import {ThemeContext} from "../../themeContext";
 
-export default function NavigationMenu({navigation}: { navigation: navigationMenuProps[] }) {
+const NavigationMenu:React.FC<navigationMenuProps> = ({subcategories, theme}) =>{
     const [showPanel, setShowPanel] = useState(false);
 
-    const themeContext = useContext(ThemeContext);
-    if(!themeContext) throw new Error('useThemeContext must be used within a ThemeProvider');
-    const {theme} = themeContext;
     const chevronDown = (categoryName: string) => {
         return (
             <>
@@ -32,32 +27,31 @@ export default function NavigationMenu({navigation}: { navigation: navigationMen
     return (
         <div className="hidden md:block relative">
             <div className="ml-32 flex items-baseline space-x-4">
-                {navigation.map((item) => (
-                    <div className='relative group'  key={item.name}>
-                        {item.name === Categories ? (
+                {subcategories?.map(({current, href, name, subcategories: subcategories_}) => (
+                    <div className='relative group'  key={name}>
+                        {name === Categories ? (
                             <Disclosure>
                                 {() => (
                                     <>
                                         <Disclosure.Button
                                             onClick={handlePanel}
-                                            as="a"
-                                            href={item.href}
+                                            as="button"
                                             className={classNames({
                                                 classes: [
                                                     theme === 'light'
-                                                        ? 'bg-white text-black'
+                                                        ? 'bg-white text-black hover:bg-gray-50'
                                                         : 'bg-pages text-white hover:bg-gray-50 hover:text-black',
                                                     'block rounded px-3 py-2 text-sm font-medium',
                                                 ],
                                             })}
-                                            aria-current={item.current ? 'page' : undefined}
+                                            aria-current={current ? 'page' : undefined}
                                         >
-                                            {chevronDown(item.name)}
+                                            {chevronDown(name)}
                                         </Disclosure.Button>
-                                        {item.subcategories && (
+                                        {subcategories_ && (
                                             <Disclosure.Panel className={`fadeIn ${showPanel ? 'slide-bottom show':''}`}>
                                                 <div className={`rounded border-white w-max grid grid-cols-3 gap-3 items-center space-y-1 px-2 pb-3 pt-2 sm:px-3 shadow-md absolute z-50 top-full left-0 ${theme === 'light' ? 'bg-white text-black': 'bg-pages text-white'}`}>
-                                                    {item.subcategories.map((subItem) => (
+                                                    {subcategories_.map((subItem) => (
                                                         <a
                                                             key={subItem.name}
                                                             href={`/category/${subItem.href}`}
@@ -82,18 +76,18 @@ export default function NavigationMenu({navigation}: { navigation: navigationMen
                             </Disclosure>
                         ) : (
                             <a
-                                href={item.href}
+                                href={href}
                                 className={classNames({
                                     classes: [
                                         theme === 'light'
                                             ? 'bg-white text-black hover:bg-gray-50 hover:text-black'
-                                            : 'bg-pages text-white hover:bg-gray-50 hover:text-black',
+                                            : 'bg-header text-white hover:bg-gray-50 hover:text-black',
                                         'block rounded-md px-3 py-2 text-sm font-medium',
                                     ],
                                 })}
-                                aria-current={item.current ? 'page' : undefined}
+                                aria-current={current ? 'page' : undefined}
                             >
-                                {item.name}
+                                {name}
                             </a>
                         )}
                     </div>
@@ -102,3 +96,5 @@ export default function NavigationMenu({navigation}: { navigation: navigationMen
         </div>
     )
 }
+
+export default NavigationMenu;

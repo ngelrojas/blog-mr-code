@@ -3,10 +3,11 @@ import React from "react";
 type Theme = "light" | "dark";
 
 export interface navigationMenuProps {
-    name: string;
-    href: string;
-    current: boolean;
+    name?: string;
+    href?: string;
+    current?: boolean;
     subcategories?: navigationMenuProps[];
+    theme?: Theme;
 }
 
 export interface ClassNamesParams {
@@ -81,5 +82,9 @@ export interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
     content: any;
+    theme: Theme;
+}
+
+export interface LogoProps {
     theme: Theme;
 }

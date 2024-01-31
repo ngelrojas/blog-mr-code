@@ -20,7 +20,7 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) 
                 <div
                     className="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-3/4">
                     {/*modal header*/}
-                    <div className="bg-white border-b px-6 py-5 sm:px-8 sm:flex sm:flex-initial">
+                    <div className={`border-b px-6 py-5 sm:px-8 sm:flex sm:flex-initial ${theme === 'light' ? 'bg-white' : 'bg-pages'}`}>
                         <button type="button" onClick={onClose}>
                             <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                                  stroke="currentColor" className="w-5 h-5">
@@ -30,7 +30,7 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) 
                         </button>
                     </div>
                     {/* Modal content */}
-                    <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div className={`px-4 pt-5 pb-4 sm:p-6 sm:pb-4 ${theme === 'light' ? 'bg-white' : 'bg-pages'}`}>
                         <div className="sm:flex sm:items-start">
                             <div className="flex flex-col mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
 
@@ -93,16 +93,16 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) 
                         </div>
                     </div>
                     {/* Modal footer */}
-                    <div className="ml-4 mr-2  px-4 py-3 sm:px-6 flex justify-between">
+                    <div className={`px-4 py-3 sm:px-6 flex justify-between ${theme === 'light' ? 'bg-white' : 'bg-pages'}`}>
                         <a
                             href={content.href}
-                            className="text-sm font-semibold leading-5 text-blue-700"
+                            className="ml-4 text-sm font-semibold leading-5 text-blue-500"
                         >
                             READ MORE
                         </a>
                         <button
                             type="button"
-                            className="text-sm font-semibold leading-5 text-blue-700"
+                            className="mr-2 text-sm font-semibold leading-5 text-blue-500"
                             onClick={onClose}
                         >
                             CLOSE

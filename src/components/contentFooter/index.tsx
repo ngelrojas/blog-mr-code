@@ -1,15 +1,25 @@
-import MrCodeLogo from "../logo";
+import React from "react";
+import MrCodeLogoLight from "../logo/lightLogo";
+import MrCodeLogoDark from "../logo/darkLogo";
 import { FaFacebook } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
-import {useContext} from "react";
-import {ThemeContext} from "../../themeContext";
 
-export default function ContentFooter () {
-    const themeContext = useContext(ThemeContext);
-    if(!themeContext) throw new Error('useThemeContext must be used within a ThemeProvider');
-    const {theme} = themeContext;
+
+type Theme = 'light' | 'dark';
+interface ContentFooterProps {
+    theme: Theme
+}
+
+const ContentFooter:React.FC<ContentFooterProps> = ({theme}) => {
+
+    const renderLogo = () => {
+        if(theme === 'light'){
+            return <MrCodeLogoLight theme={theme} />
+        }
+        return <MrCodeLogoDark theme={theme} />
+    }
 
     return (
         <footer className="relative pb-6">
@@ -29,7 +39,7 @@ export default function ContentFooter () {
                         <div className="grid grid-cols-1 md:grid-cols-2">
                             <div className="grid grid-rows-2">
                                 <div className="justify-items-center">
-                                    <MrCodeLogo />
+                                    {renderLogo()}
                                 </div>
                                 <ul className={`flex gap-4 md:gap-20 items-center ${theme === 'light' ? 'text-white' : 'text-gray-800'}`}>
                                     <li><a href="#"><FaFacebook size={25} /></a></li>
@@ -58,3 +68,5 @@ export default function ContentFooter () {
         </footer>
     )
 }
+
+export default ContentFooter;

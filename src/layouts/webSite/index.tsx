@@ -15,7 +15,7 @@ export const WebSiteLayout:React.FC<WebSiteLayoutProps> = ({children}) => {
             <Fragment>
                 <NavBar />
                     {children}
-                <ContentFooter />
+                <ContentFooter theme={theme} />
             </Fragment>
         </div>
     )
