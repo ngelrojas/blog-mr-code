@@ -19,7 +19,7 @@ const Card: React.FC<CardPropsI> = ({_posts, theme}) => {
 
     return (
         <div
-            className={`rounded card-spaces mt-16 ${theme === 'light' ? 'border bg-white text-black' : 'bg-cards text-white'}`}>
+            className={`rounded card-spaces mt-16 ${theme === 'light' ? 'border-cards-light bg-white text-black' : 'bg-footer-dark border-cards text-white'}`}>
             <div className="mx-auto  px-5">
                 <div className="mx-auto grid">
                     <article className="flex flex-col">
@@ -39,7 +39,7 @@ const Card: React.FC<CardPropsI> = ({_posts, theme}) => {
                             <button
                                 type="button"
                                 id={`card-post-${_posts.id.toString()}`}
-                                className={`text-sm font-semibold leading-6 ${theme === 'light' ? 'text-light' : 'text-blue-400'}`}
+                                className={`text-sm font-semibold leading-6 ${theme === 'light' ? 'text-light' : 'text-primary-dark'}`}
                                 onClick={handleOpenModal}>SUMMARY
                             </button>
                             <button

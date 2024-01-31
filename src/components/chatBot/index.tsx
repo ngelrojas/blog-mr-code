@@ -19,7 +19,7 @@ const ChatBot = () => {
     };
 
     return (
-        <div className={`fixed z-20 bottom-0 right-0 m-6 w-64 ${isMinimized ? 'h-16' : 'h-96'} bg-white border rounded shadow flex flex-col`}>
+        <div className={`fixed z-20 bottom-1 right-0 m-6 w-64 ${isMinimized ? 'h-16' : 'h-96'} bg-white border rounded shadow flex flex-col`}>
             <div className="flex flex-col-2 p-2 bg-header text-white text-lg font-bold border-b">
                 <div className="w-6 grid content-center">
                     <FaRobot className={`${isMinimized ? 'text-green-400' : 'text-yellow-400'}`} onClick={handleToggleMinimize} />

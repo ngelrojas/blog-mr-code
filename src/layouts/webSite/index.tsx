@@ -11,7 +11,7 @@ export const WebSiteLayout:React.FC<WebSiteLayoutProps> = ({children}) => {
     const {theme} = themeContext;
 
     return(
-        <div className={`${theme === 'light' ? 'bg-white' : 'bg-pages'}`}>
+        <div className={`${theme === 'light' ? 'bg-pages-light' : 'bg-pages'}`}>
 
             <Fragment>
                 <NavBar />

@@ -1,4 +1,5 @@
 /*content page*/
+
 main{
     min-height: 100dvh;
 }
@@ -41,7 +42,7 @@ main{
 }
 
 .custom-shape-divider-top-1705452502 .shape-fill-dark {
-    fill: #000b25;
+    fill: rgba(15, 23, 42, 1);
 }
 
 /*display button category*/
@@ -83,17 +84,24 @@ main{
 
 /*background pages*/
 .bg-pages{
-    background: #000b25;
+    background: linear-gradient(25deg, rgba(15, 23, 42, 1) 45%, rgba(23, 37, 61, 1) 62%, rgba(15, 23, 42, 1) 71%);
+}
+.bg-pages-light{
+    background: linear-gradient(25deg, rgba(30, 41, 59, 0) 33%, rgba(30, 41, 59, 0.04) 59%, rgba(30, 41, 59, 0) 84%);
 }
 /*mode light and dark*/
 /*mode light*/
 .text-light{
-    color: #0a66c2;
+    color: #0A66C2;
 }
 /*mode dark*/
 .text-dark{
     color: #ffffff;
 }
+.text-primary-dark{
+    color: #65B0F6;
+}
+
 /*background cards*/
 .bg-cards{
     background: #1f283f;
@@ -101,8 +109,20 @@ main{
 
 /*background header*/
 .bg-header{
-    background: #1f283f;
+    background: #0F172A;
 }
 
+.border-nav-b{
+    border-bottom: 0.4px solid #565656;
+}
 
-
+.border-cards{
+    border: 0.4px solid #474E54;
+}
+.border-cards-light{
+    border: 0.4px solid #D1D2D4;
+}
+.bg-footer-light{}
+.bg-footer-dark{
+    background: #262E3F;
+}

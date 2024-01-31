@@ -180,7 +180,7 @@ export default function ListCard (){
     };
 
     return (
-        <div className={`card-list ${theme === 'light' ? 'bg-white': 'bg-pages'}`}>
+        <div className="card-list">
 
             {currentPosts.map((post: Post) => (
                 <Card _posts={post} theme={theme} key={post.id} />
