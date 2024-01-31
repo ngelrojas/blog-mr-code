@@ -11,7 +11,7 @@ main{
 
 /*card list*/
 .card-list{
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 
@@ -40,6 +40,69 @@ main{
     fill: #ffffff;
 }
 
+.custom-shape-divider-top-1705452502 .shape-fill-dark {
+    fill: #000b25;
+}
+
+/*display button category*/
+.fadeIn{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.fadeIn.show{
+    opacity: 1;
+}
+
+.slide-bottom {
+    position: relative;
+    z-index: 999;
+    -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-bottom {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+}
+@keyframes slide-bottom {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(14px);
+        transform: translateY(14px);
+    }
+}
+
+/*background pages*/
+.bg-pages{
+    background: #000b25;
+}
+/*mode light and dark*/
+/*mode light*/
+.text-light{
+    color: #0a66c2;
+}
+/*mode dark*/
+.text-dark{
+    color: #ffffff;
+}
+/*background cards*/
+.bg-cards{
+    background: #1f283f;
+}
+
+/*background header*/
+.bg-header{
+    background: #1f283f;
+}
 
 
 

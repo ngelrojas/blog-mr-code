@@ -1,9 +1,12 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import Card from "../card";
 import { Post } from "../../types/utils.interface";
 import PaginationBtn from "../paginationBtn";
+import { ThemeContext } from "../../themeContext";
 
-const _posts = [
+const bannerUrl = 'https://picsum.photos/seed/picsum/700/300';
+
+const __posts = [
     {
         id: 1,
         title: 'Boost your conversion rate',
@@ -20,6 +23,8 @@ const _posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
+        bannerImg: bannerUrl,
+        summary: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.'
     },
     {
         id: 2,
@@ -37,6 +42,8 @@ const _posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
+        bannerImg: bannerUrl,
+        summary: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.'
     },
     {
         id: 3,
@@ -54,6 +61,8 @@ const _posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
+        bannerImg: bannerUrl,
+        summary: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.'
     },
     {
         id: 4,
@@ -71,6 +80,8 @@ const _posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
+        bannerImg: bannerUrl,
+        summary: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.'
     },
     {
         id: 5,
@@ -88,6 +99,8 @@ const _posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
+        bannerImg: bannerUrl,
+        summary: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.'
     },
     {
         id: 6,
@@ -122,11 +135,17 @@ const _posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
+        bannerImg: bannerUrl,
+        summary: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.'
     },
 ]
 
 const postsPerPage = 3;
 export default function ListCard (){
+    const themeContext = useContext(ThemeContext);
+    if(!themeContext) throw new Error('useThemeContext must be used within a ThemeProvider');
+    const {theme} = themeContext;
+
     const [posts, setPosts] = useState<Post[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -136,7 +155,7 @@ export default function ListCard (){
             // const response = await fetch('https://jsonplaceholder.typicode.com/posts');
             // const data = await response.json();
             // setPosts(data);
-            setPosts(_posts);
+            setPosts(__posts);
         };
 
         fetchData();
@@ -161,10 +180,10 @@ export default function ListCard (){
     };
 
     return (
-        <div className="card-list">
+        <div className={`card-list ${theme === 'light' ? 'bg-white': 'bg-pages'}`}>
 
             {currentPosts.map((post: Post) => (
-                <Card {...post} key={post.id} />
+                <Card _posts={post} theme={theme} key={post.id} />
             ))}
 
             <PaginationBtn

@@ -1,8 +1,19 @@
-export default function MrCodeLogo(){
+import React from "react";
+// import  LogoMrCodeDark from '../../assets/codedark.svg';
+import  LogoMrCodeLight from '../../assets/codelight.svg';
+
+type Theme = 'light' | 'dark';
+interface LogoProps {
+    theme: Theme;
+}
+const MrCodeLogo:React.FC<LogoProps> =({theme}) => {
+
+
     return (
-        <div className="flex-shrink-0 bg-gray-800">
-            <h1 className="text-white text-3xl">MR</h1>
-            <h4 className="text-white">CODE</h4>
+        <div className="flex-shrink-0">
+            <img src={LogoMrCodeLight} className={`w-14 h-14 ${theme === 'light' ? 'bg-white': 'bg-white'}`} alt="mr-code"/>
         </div>
+
     )
 }
+export default MrCodeLogo;
