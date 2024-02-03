@@ -2,7 +2,6 @@ import React from 'react';
 import Author from "../author";
 import { ModalProps } from "../../types/utils.interface";
 
-//TODO: begin mode dark for this component
 const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) => {
 
     return (
@@ -18,12 +17,12 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) 
           &#8203;
         </span>
                 <div
-                    className="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-3/4">
+                    className="puff-in-hor relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-3/4">
                     {/*modal header*/}
                     <div className={`border-nav-b px-6 py-5 sm:px-8 sm:flex sm:flex-initial ${theme === 'light' ? 'bg-white' : 'bg-cards'}`}>
-                        <button type="button" onClick={onClose}>
+                        <button type="button" onClick={onClose} >
                             <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                                 stroke="currentColor" className="w-5 h-5">
+                                 stroke="currentColor" className={`w-5 h-5 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
                                 <path strokeLinecap="round" strokeLinejoin="round"
                                       d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/>
                             </svg>
@@ -42,15 +41,7 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) 
                                     <img src={content.author.imageUrl} alt={content.author}
                                          className="h-20 w-20 rounded-full bg-gray-50 flex-none"/>
                                 </div>
-                                <div className="group relative mt-3 mb-3">
-                                    <h3 className={`mt-3 text-lg font-semibold leading-6 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
-                                        <p>
-                                            <span className="absolute inset-0"/>
-                                            {content.title}
-                                        </p>
-                                    </h3>
-                                </div>
-                                <div className="mt-3 mb-3">
+                                <div className="">
                                     <audio id="my-audio">
                                         <source
                                             src="http://jPlayer.org/audio/mp3/Miaow-07-Bubble.mp3"
@@ -65,8 +56,10 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) 
                                     <div id="controls">
 
                                         <button id="play" className="-hidden">
-                                            <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                                            <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
+                                                 className={`w-6 h-6 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+                                                <path strokeLinecap="round" strokeLinejoin="round"
+                                                      d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"/>
                                             </svg>
 
                                         </button>
@@ -83,6 +76,16 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) 
                                         <div id="bar"></div>
                                     </div>
                                 </div>
+
+                                <div className="group relative">
+                                    <h3 className={`mt-3 text-lg font-semibold leading-6 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+                                        <p>
+                                            <span className="absolute inset-0"/>
+                                            {content.title}
+                                        </p>
+                                    </h3>
+                                </div>
+
                                 <div className="content-center mt-3 mb-3">
                                     <img src={content.bannerImg} alt={content.title} className="rounded"/>
                                 </div>
@@ -93,7 +96,8 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) 
                         </div>
                     </div>
                     {/* Modal footer */}
-                    <div className={`px-4 py-3 sm:px-6 flex justify-between ${theme === 'light' ? 'bg-white' : 'bg-cards'}`}>
+                    <div
+                        className={`px-4 py-3 sm:px-6 flex justify-between ${theme === 'light' ? 'bg-white' : 'bg-cards'}`}>
                         <a
                             href={content.href}
                             className={`ml-4 text-sm font-semibold leading-5 ${theme === 'light' ? 'text-light' : 'text-primary-dark'}`}

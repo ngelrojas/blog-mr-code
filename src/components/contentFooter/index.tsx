@@ -24,7 +24,7 @@ const ContentFooter:React.FC<ContentFooterProps> = ({theme}) => {
     return (
         <footer className="relative pb-6">
             <div className="footer-oval">
-                <div className={`custom-shape-divider-top-1705452502 ${theme === 'light' ? 'bg-header' : 'bg-footer-dark'}`}>
+                <div className={`custom-shape-divider-top-1705452502 ${theme === 'light' ? 'bg-footer-light' : 'bg-footer-dark'}`}>
                     <svg data-name="Layer 1" viewBox="0 0 1200 120"
                          preserveAspectRatio="none">
                         <path

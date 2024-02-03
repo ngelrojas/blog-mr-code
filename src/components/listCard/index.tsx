@@ -9,7 +9,7 @@ const bannerUrl = 'https://picsum.photos/seed/picsum/700/300';
 const __posts = [
     {
         id: 1,
-        title: 'Boost your conversion rate',
+        title: 'Boost your conversion rate 1',
         href: '#',
         description:
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
@@ -28,7 +28,7 @@ const __posts = [
     },
     {
         id: 2,
-        title: 'Boost your conversion rate, in the era of AI',
+        title: 'Boost your conversion rate, in the era of AI 2',
         href: '#',
         description:
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
@@ -47,7 +47,7 @@ const __posts = [
     },
     {
         id: 3,
-        title: 'Boost your conversion rate, in the era of AI',
+        title: 'Boost your conversion rate, in the era of AI Here 3',
         href: '#',
         description:
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
@@ -66,7 +66,7 @@ const __posts = [
     },
     {
         id: 4,
-        title: 'Boost your conversion rate, in the era of AI',
+        title: 'Boost your conversion rate, in the era of AI 4',
         href: '#',
         description:
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
@@ -85,7 +85,7 @@ const __posts = [
     },
     {
         id: 5,
-        title: 'Boost your conversion rate, in the era of AI',
+        title: 'Boost your conversion rate, in the era of AI 5',
         href: '#',
         description:
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
@@ -104,7 +104,7 @@ const __posts = [
     },
     {
         id: 6,
-        title: 'Boost your conversion rate, in the era of AI',
+        title: 'Boost your conversion rate, in the era of AI 6',
         href: '#',
         description:
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
@@ -118,10 +118,12 @@ const __posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
+        bannerImg: bannerUrl,
+        summary: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.'
     },
     {
         id: 7,
-        title: 'Boost your conversion rate, in the era of AI MORE',
+        title: 'Boost your conversion rate, in the era of AI MORE 7',
         href: '#',
         description:
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
