@@ -106,14 +106,14 @@ main{
     opacity: 0.3;
     font-size: 10px;
     width: 92%;
-    justify-content: end;
+    justify-content: flex-end;
 }
 .help-bot{
     position: relative;
 }
 .help-bot:after{
     display: flex;
-    content: "help-bot";
+    content: "helpBot";
     position: absolute;
     top: -39%;
     opacity: 0.3;
@@ -224,4 +224,26 @@ main{
 .puff-in-hor {
     -webkit-animation: puff-in-hor 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
     animation: puff-in-hor 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+
+/*transition between pages*/
+
+.transition-effect-enter {
+    opacity: 0;
+    transition: all 5s ease-in-out;
+}
+
+.transition-effect-enter-active {
+    opacity: 1;
+    transition: all 5s ease-in-out;
+}
+
+.transition-effect-exit {
+    opacity: 1;
+    transition: all 5s ease-in-out;
+}
+
+.transition-effect-exit-active {
+    opacity: 0;
+    transition: all 5s ease-in-out;
 }

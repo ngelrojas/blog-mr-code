@@ -4,6 +4,7 @@ import ContentFooter from "../../components/contentFooter";
 import { WebSiteLayoutProps } from "../../types/utils.interface";
 import {ThemeContext} from "../../themeContext";
 import ChatBot from "../../components/chatBot";
+import { CSSTransition } from 'react-transition-group';
 
 export const WebSiteLayout:React.FC<WebSiteLayoutProps> = ({children}) => {
     const themeContext = useContext(ThemeContext);
@@ -15,7 +16,11 @@ export const WebSiteLayout:React.FC<WebSiteLayoutProps> = ({children}) => {
 
             <Fragment>
                 <NavBar />
-                    {children}
+                <main className="container mx-auto">
+                    <CSSTransition in={true} timeout={500} classNames="transition-effect">
+                        {children}
+                    </CSSTransition>
+                </main>
                 <ChatBot />
                 <ContentFooter theme={theme} />
             </Fragment>
