@@ -4,8 +4,8 @@ export default function Category () {
     const { slug } = useParams();
 
     return(
-        <div>
-            <h1>Category {slug}</h1>
+        <div className="pt-28">
+            <h1 className="text-black">Category {slug}</h1>
         </div>
     )
 }
