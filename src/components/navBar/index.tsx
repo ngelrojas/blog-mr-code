@@ -71,7 +71,7 @@ export default function NavBar() {
 
     return (
         <Disclosure as="nav"
-                    className={`fixed container max-w-full z-50 ${theme === 'light' ? 'border-b border-gray-300 bg-white text-black' : 'bg-header text-white'}`}>
+                    className={`fixed container max-w-full z-50 ${theme === 'light' ? 'border-b border-gray-300 bg-white text-black' : 'bg-pages border-nav-b text-white'}`}>
             {({open}) => (
                 <>
                     <div

@@ -7,7 +7,7 @@ const MrCodeLogoLight: React.FC<LogoProps> = ({theme}) => {
     return (
         <div className="flex-shrink-0">
             <a href="/">
-                <img src={LogoMrCodeLight} className={`w-14 h-14 ${theme === 'light' ? 'bg-header' : 'bg-header'}`}
+                <img src={LogoMrCodeLight} className={`w-14 h-14 ${theme === 'light' ? 'bg-footer-light' : 'bg-header'}`}
                      alt="mr-code"/>
             </a>
         </div>

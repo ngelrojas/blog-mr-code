@@ -50,7 +50,7 @@ const NavigationMenu:React.FC<navigationMenuProps> = ({subcategories, theme}) =>
                                         </Disclosure.Button>
                                         {subcategories_ && (
                                             <Disclosure.Panel className={`fadeIn ${showPanel ? 'slide-bottom show':''}`}>
-                                                <div className={`rounded border-white w-max grid grid-cols-3 gap-3 items-center space-y-1 px-2 pb-3 pt-2 sm:px-3 shadow-md absolute z-50 top-full left-0 ${theme === 'light' ? 'bg-white text-black': 'bg-pages text-white'}`}>
+                                                <div className={`rounded border-white w-max grid grid-cols-3 gap-3 items-center space-y-1 px-2 pb-3 pt-2 sm:px-3 shadow-md absolute z-50 top-full left-0 ${theme === 'light' ? 'bg-white text-black': 'bg-header text-white'}`}>
                                                     {subcategories_.map((subItem) => (
                                                         <a
                                                             key={subItem.name}
@@ -59,7 +59,7 @@ const NavigationMenu:React.FC<navigationMenuProps> = ({subcategories, theme}) =>
                                                                 classes: [
                                                                     theme === 'light'
                                                                         ? 'bg-white text-black hover:bg-gray-100 hover:text-black'
-                                                                        : 'bg-pages text-white hover:bg-gray-100 hover:text-black',
+                                                                        : 'bg-header text-white hover:bg-gray-100 hover:text-black',
                                                                     'rounded px-3 py-2 text-base font-medium transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none',
                                                                 ],
                                                             })}
