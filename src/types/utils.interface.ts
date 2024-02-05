@@ -21,10 +21,11 @@ export interface Post {
     description: string;
     date: string;
     datetime: string;
-    category: { title: string; href: string };
+    category: { title: string; slug: string };
     author: { name: string; role: string; href: string; imageUrl: string };
     bannerImg?: string;
     summary?: string;
+    slug?: string;
 }
 
 export interface CardPropsI {
@@ -48,7 +49,7 @@ export interface WebSiteLayoutProps {
 export interface CategoryTimeProps {
     date: string,
     datetime: string,
-    category: { title: string, href: string }
+    category: { title: string, slug: string }
 }
 
 export interface CategoryTimePropsI {
