@@ -15,7 +15,8 @@ const __posts = [
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
         date: 'Mar 16, 2020',
         datetime: '2020-03-16',
-        category: { title: 'Marketing', href: '#' },
+        category: { title: 'Marketing', slug: 'marketing' },
+        slug: 'boost-your-conversion-rate-1',
         author: {
             name: 'Michael Foster',
             role: 'Co-Founder / CTO',
@@ -34,7 +35,8 @@ const __posts = [
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
         date: 'Mar 16, 2021',
         datetime: '2020-03-10',
-        category: { title: 'JavaScript', href: '#' },
+        category: { title: 'Machine Learning', slug: 'machine-learning' },
+        slug: 'boost-your-conversion-rate-2',
         author: {
             name: 'Michael Doe',
             role: 'Developer Advocate',
@@ -53,7 +55,8 @@ const __posts = [
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
         date: 'Mar 16, 2021',
         datetime: '2020-03-10',
-        category: { title: 'JavaScript', href: '#' },
+        category: { title: 'Java', slug: 'java' },
+        slug: 'boost-your-conversion-rate-3',
         author: {
             name: 'Michael Doe',
             role: 'Developer Advocate',
@@ -72,7 +75,8 @@ const __posts = [
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
         date: 'Mar 16, 2021',
         datetime: '2020-03-10',
-        category: { title: 'JavaScript', href: '#' },
+        category: { title: 'C#', slug: 'c-sharp' },
+        slug: 'boost-your-conversion-rate-4',
         author: {
             name: 'Michael Doe',
             role: 'Developer Advocate',
@@ -91,7 +95,8 @@ const __posts = [
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
         date: 'Mar 16, 2021',
         datetime: '2020-03-10',
-        category: { title: 'JavaScript', href: '#' },
+        category: { title: 'Rus', slug: 'rust' },
+        slug: 'boost-your-conversion-rate-5',
         author: {
             name: 'Michael Doe',
             role: 'Developer Advocate',
@@ -110,7 +115,8 @@ const __posts = [
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
         date: 'Mar 16, 2021',
         datetime: '2020-03-10',
-        category: { title: 'JavaScript', href: '#' },
+        category: { title: 'Redux', slug: 'redux' },
+        slug: 'boost-your-conversion-rate-6',
         author: {
             name: 'Michael Doe',
             role: 'Developer Advocate',
@@ -129,7 +135,8 @@ const __posts = [
             'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
         date: 'Mar 16, 2021',
         datetime: '2020-03-10',
-        category: { title: 'JavaScript', href: '#' },
+        category: { title: 'React-JS', slug: 'react-js' },
+        slug: 'boost-your-conversion-rate-7',
         author: {
             name: 'Michael Doe',
             role: 'Developer Advocate',

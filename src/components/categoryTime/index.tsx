@@ -9,7 +9,7 @@ const CategoryTime: React.FC<CategoryTimePropsI> = ({categoryTime, theme}) => {
                 {categoryTime.date}
             </time>
             <a
-                href={categoryTime.category.href}
+                href={`category/${categoryTime.category.slug}`}
                 className={`ml-2 relative z-10 rounded-full px-3 py-1.5 font-medium hover:bg-gray-100 hover:text-gray-800 ${theme === 'light' ? 'bg-gray-800 text-white' : 'bg-gray-50 text-gray-600'}`}
             >
                 {categoryTime.category.title}

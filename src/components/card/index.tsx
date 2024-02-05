@@ -43,11 +43,11 @@ const Card: React.FC<CardPropsI> = ({_posts, theme}) => {
                                     className={`text-sm font-semibold leading-6 ${theme === 'light' ? 'text-light' : 'text-primary-dark'}`}
                                     onClick={handleOpenModal}>SUMMARY
                                 </button>
-                                <button
-                                    type="button"
+                                <a
+                                    href={`/category/${_posts.category.slug}/${_posts.slug}`}
                                     className={`text-sm font-semibold leading-6 ${theme === 'light' ? 'text-light' : 'text-primary-dark'}`}>
                                     READ MORE
-                                </button>
+                                </a>
                             </div>
                         </article>
                     </div>
