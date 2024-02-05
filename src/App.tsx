@@ -1,13 +1,17 @@
 import './App.css'
+import { RouterProvider } from "react-router-dom";
+import { webSiteRoutes } from "./routes/webSite";
+import { WebSiteLayout } from "./layouts/webSite";
+import { ThemeProvider} from "./themeContext";
 
 function App() {
 
   return (
-    <>
-        <h1 className="text-6xl font-bold underline text-red-600">
-            simple react app with typescript and tailwind css sample
-        </h1>
-    </>
+      <ThemeProvider>
+        <WebSiteLayout>
+            <RouterProvider router={webSiteRoutes} />
+        </WebSiteLayout>
+      </ThemeProvider>
   )
 }
 
