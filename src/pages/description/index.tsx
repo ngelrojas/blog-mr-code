@@ -38,7 +38,7 @@ export default function Description() {
                 </div>
 
                 <div className="mrcode-icon-social-networks py-5">
-                    icons
+                    social networks
                 </div>
 
                 <div className="description container py-5">
@@ -48,11 +48,29 @@ export default function Description() {
 
                 <div className="carousel-post-mrcode">carousel slides</div>
 
-                <div className="comment-editor"></div>
+                <div className="comment-editor">
+                    comment editor
+                </div>
 
-                <div className="comment-list"></div>
+                <div className="comment-list">
+                    comment list
+                </div>
             </div>
-            <aside className="basis-1/4">here side</aside>
+            <aside className="basis-1/6">
+                <div className="py-5 border-b aside-header">
+                    <h1>back</h1>
+                </div>
+                <div className="aside-content">
+                    <ul className="ml-2">
+                        <li className="border-l-2 border-l-blue-500 pl-1 my-2 hover:text-blue-400"><a href="">One title</a></li>
+                        <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400"><a href="">This is a title a little large what you think?</a></li>
+                        <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400"><a href="">Three title</a></li>
+                    </ul>
+                </div>
+                <div className="my-5 aside-footer">
+                    <h1>player</h1>
+                </div>
+            </aside>
         </div>
     )
 }
