@@ -89,3 +89,7 @@ export interface ModalProps {
 export interface LogoProps {
     theme: Theme;
 }
+
+export interface ContentFooterProps {
+    theme: Theme
+}

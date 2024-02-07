@@ -1,10 +1,14 @@
-import { useParams } from "react-router-dom";
+import React, {useContext} from "react";
+// import { useParams } from "react-router-dom";
 import Author from "../../components/author";
 import CategoryTime from "../../components/categoryTime";
+import {ThemeContext} from "../../themeContext";
+import {FaFacebook, FaLinkedin, FaXTwitter, FaYoutube} from "react-icons/fa6";
+import ListRelated from "../../components/listRelated";
 
 // TODO: create a description page
 // no permanent interface
-const theme = 'light';
+// const theme = 'light';
 const author = {
     name: 'John Doe',
     role: 'Software Engineer',
@@ -19,58 +23,171 @@ const categoryTime = {
     category: { title: 'React-JS', slug: 'react-js' }
 
 }
-export default function Description() {
-    const { slug, description } = useParams();
+
+const content = {
+    title: 'Boost your conversion rate, in the era of AI MORE 7',
+    bannerImg: 'https://picsum.photos/seed/picsum/700/300',
+    description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+}
+
+// TODO: 1 fix the aside, because when down the page the aside cover the the post related.
+// TODO: 3 create a carrousel for the post related.
+// TODO: 4 then continue creating the comments section.
+// TODO: 5 refactor aside to a component.
+const Description:React.FC = () => {
+    const themeContext = useContext(ThemeContext);
+    if(!themeContext) throw new Error('useThemeContext must be used within a ThemeProvider');
+    const {theme} = themeContext;
+    // const { slug, description } = useParams();
 
     return(
-        <div className="flex flex-row container pt-28">
+        <div className="container pt-28">
+            <div className="flex flex-row">
 
-            <div className="mx-auto max-w-2xl py-5 sm:px-10 lg:px-12 basis-1/2">
+                <div className="mx-auto max-w-2xl py-5 sm:px-10 lg:px-12 basis-1/2">
 
-                <div className="relative mt-4 flex flex-row items-center">
-                    <div className="text-sm leading-6 items-center grow">
-                        <Author author={author} theme={theme}/>
-                        <CategoryTime categoryTime={categoryTime} theme={theme}/>
+                    <div className="relative mt-4 flex flex-row items-center">
+                        <div className="text-sm leading-6 items-center grow">
+                            <Author author={author} theme={theme}/>
+                            <CategoryTime categoryTime={categoryTime} theme={theme}/>
+                        </div>
+
+                        <img src={author.imageUrl} alt=""
+                             className="h-16 w-16 rounded-full bg-gray-50 flex-none"/>
                     </div>
 
-                    <img src={author.imageUrl} alt=""
-                         className="h-20 w-20 rounded-full bg-gray-50 flex-none"/>
+                    <div className="mrcode-icon-social-networks py-5">
+                        <div className="grid">
+                            <ul className={`flex gap-4 md:gap-5 items-center ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+                                <li><a href="/facebook"><FaFacebook size={25}/></a></li>
+                                <li><a href="/twitter"><FaXTwitter size={20}/></a></li>
+                                <li><a href="/linkedin"><FaLinkedin size={25}/></a></li>
+                                <li><a href="/youtube"><FaYoutube size={35}/></a></li>
+                                <li>
+                                    <div className="mr-code-player grid items-center">
+                                        <audio id="my-audio">
+                                            <source
+                                                src="http://jPlayer.org/audio/mp3/Miaow-07-Bubble.mp3"
+                                                type="audio/mpeg"/>
+                                            <source
+                                                src="http://jPlayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+                                                type="audio/ogg"/>
+
+                                            <a href="audiofile.mp3">audiofile.mp3</a>
+                                        </audio>
+
+                                        <div id="controls">
+
+                                            <button id="play" className="-hidden flex justify-items-center">
+                                                <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
+                                                     className={`w-6 h-6 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+                                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                                          d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"/>
+                                                </svg>
+
+                                            </button>
+                                            <button id="pause" className="hidden flex justify-items-center">
+                                                <svg fill="none" viewBox="0 0 24 24"
+                                                     strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                                          d="M15.75 5.25v13.5m-7.5-13.5v13.5"/>
+                                                </svg>
+
+                                            </button>
+                                        </div>
+                                        <div id="progress">
+                                            <div id="bar"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="description container py-5">
+                        <div className="description-title py-4">
+                            <h1>{content.title}</h1>
+                        </div>
+                        <div className="description-banner py-4">
+                            <img src={content.bannerImg} alt={content.title} className="rounded"/>
+                        </div>
+                        <div className="description-content py-4">
+                            <p>{content.description}</p>
+                            <p>{content.description}</p>
+                            <p>{content.description}</p>
+                            <p>{content.description}</p>
+                            <p>{content.description}</p>
+                        </div>
+                        <div className="description-banner py-4">
+                            <img src={content.bannerImg} alt={content.title} className="rounded"/>
+                        </div>
+                        <div className="description-content py-4">
+                            <p>{content.description}</p>
+                            <p>{content.description}</p>
+                            <p>{content.description}</p>
+                            <p>{content.description}</p>
+                            <p>{content.description}</p>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div className="mrcode-icon-social-networks py-5">
-                    social networks
+                <div className="flex justify-end">
+                    <aside className="fixed z-50 basis-1/6 w-1/6">
+                        <div className="py-5 border-b aside-header">
+                            <a href="/home">
+                                <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                                     stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                          d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div className="aside-content">
+                            <h1 className="py-3 text-2xl"><p className="underline">Content</p></h1>
+                            <ul className="ml-2">
+                                <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
+                                    <a href="#"
+                                       className="transition-all ease-in-out delay-150 duration-300 hover:pl-2">This is
+                                        a title a little large what you think more lettes one</a></li>
+                                <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
+                                    <a href="#"
+                                       className="transition-all ease-in-out delay-150 duration-300 hover:pl-2">This is
+                                        a title a little large what you think more letters?</a></li>
+                                <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
+                                    <a href="#"
+                                       className="transition-all ease-in-out delay-150 duration-300 hover:pl-2">Three
+                                        title</a></li>
+                            </ul>
+                        </div>
+                        <div className="my-5 aside-footer">
+                            <h1>player</h1>
+                        </div>
+                    </aside>
                 </div>
 
-                <div className="description container py-5">
 
-                    <h1>Description {description} - {slug} </h1>
-                </div>
-
-                <div className="carousel-post-mrcode">carousel slides</div>
-
-                <div className="comment-editor">
-                    comment editor
-                </div>
-
-                <div className="comment-list">
-                    comment list
-                </div>
             </div>
-            <aside className="basis-1/6">
-                <div className="py-5 border-b aside-header">
-                    <h1>back</h1>
+            <div className="w-full">
+                <div className="carousel-post-mrcode py-4 flex flex-col">
+                    <h1 className="ml-7 my-4">Post Related</h1>
+                    <div className="mx-5">
+                        <ListRelated theme={theme} author={author} content={content}/>
+                    </div>
                 </div>
-                <div className="aside-content">
-                    <ul className="ml-2">
-                        <li className="border-l-2 border-l-blue-500 pl-1 my-2 hover:text-blue-400"><a href="">One title</a></li>
-                        <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400"><a href="">This is a title a little large what you think?</a></li>
-                        <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400"><a href="">Three title</a></li>
-                    </ul>
-                </div>
-                <div className="my-5 aside-footer">
-                    <h1>player</h1>
-                </div>
-            </aside>
+                <section className="comments-mrcode">
+
+                    <div className="comment-editor py-4">
+                        comment editor
+                    </div>
+
+                    <div className="comment-list py-4">
+                        comment list
+                    </div>
+                </section>
+            </div>
         </div>
     )
 }
+
+export default Description;
