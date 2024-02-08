@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useRef} from "react";
 // import { useParams } from "react-router-dom";
 import Author from "../../components/author";
 import CategoryTime from "../../components/categoryTime";
@@ -30,7 +30,7 @@ const content = {
     description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
 }
 
-// TODO: 1 fix the aside, because when down the page the aside cover the the post related.
+// TODO: 1 fix the aside, because when down the page the aside cover the the post related. => DONE
 // TODO: 3 create a carrousel for the post related.
 // TODO: 4 then continue creating the comments section.
 // TODO: 5 refactor aside to a component.
@@ -39,6 +39,37 @@ const Description:React.FC = () => {
     if(!themeContext) throw new Error('useThemeContext must be used within a ThemeProvider');
     const {theme} = themeContext;
     // const { slug, description } = useParams();
+    const postRelatedRef = useRef<HTMLDivElement | null>(null);
+    const asideRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (asideRef.current) {
+                    if (entry.isIntersecting) {
+                        asideRef.current.classList.add('opacity-0', 'transition', 'ease-in-out', 'duration-700');
+                    } else {
+                        asideRef.current.classList.remove('opacity-0', 'transition', 'ease-in-out', 'duration-700');
+                    }
+                }
+            },
+            {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            }
+        );
+
+        if (postRelatedRef.current) {
+            observer.observe(postRelatedRef.current);
+        }
+
+        return () => {
+            if (postRelatedRef.current) {
+                observer.unobserve(postRelatedRef.current);
+            }
+        };
+    }, []);
 
     return(
         <div className="container pt-28">
@@ -133,42 +164,43 @@ const Description:React.FC = () => {
                 </div>
 
                 <div className="flex justify-end">
-                    <aside className="fixed z-50 basis-1/6 w-1/6">
-                        <div className="py-5 border-b aside-header">
-                            <a href="/home">
-                                <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                                     stroke="currentColor" className="w-6 h-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/>
-                                </svg>
-                            </a>
-                        </div>
-                        <div className="aside-content">
-                            <h1 className="py-3 text-2xl"><p className="underline">Content</p></h1>
-                            <ul className="ml-2">
-                                <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
-                                    <a href="#"
-                                       className="transition-all ease-in-out delay-150 duration-300 hover:pl-2">This is
-                                        a title a little large what you think more lettes one</a></li>
-                                <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
-                                    <a href="#"
-                                       className="transition-all ease-in-out delay-150 duration-300 hover:pl-2">This is
-                                        a title a little large what you think more letters?</a></li>
-                                <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
-                                    <a href="#"
-                                       className="transition-all ease-in-out delay-150 duration-300 hover:pl-2">Three
-                                        title</a></li>
-                            </ul>
-                        </div>
-                        <div className="my-5 aside-footer">
-                            <h1>player</h1>
-                        </div>
-                    </aside>
+                    <aside ref={asideRef} className="fixed z-50 basis-1/6 w-1/6">
+                            <div className="py-5 border-b aside-header">
+                                <a href="/home">
+                                    <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                                         stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round"
+                                              d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div className="aside-content">
+                                <h1 className="py-3 text-2xl"><p className="underline">Content</p></h1>
+                                <ul className="ml-2">
+                                    <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
+                                        <a href="#"
+                                           className="transition-all ease-in-out delay-150 duration-300 hover:pl-2">This
+                                            is
+                                            a title a little large what you think more lettes one</a></li>
+                                    <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
+                                        <a href="#"
+                                           className="transition-all ease-in-out delay-150 duration-300 hover:pl-2">This
+                                            is
+                                            a title a little large what you think more letters?</a></li>
+                                    <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
+                                        <a href="#"
+                                           className="transition-all ease-in-out delay-150 duration-300 hover:pl-2">Three
+                                            title</a></li>
+                                </ul>
+                            </div>
+                            <div className="my-5 aside-footer">
+                                <h1>player</h1>
+                            </div>
+                        </aside>
                 </div>
 
-
             </div>
-            <div className="w-full">
+            <div ref={postRelatedRef} className="post-related-mrcode w-full">
                 <div className="carousel-post-mrcode py-4 flex flex-col">
                     <h1 className="ml-7 my-4">Post Related</h1>
                     <div className="mx-5">
@@ -186,6 +218,7 @@ const Description:React.FC = () => {
                     </div>
                 </section>
             </div>
+
         </div>
     )
 }
