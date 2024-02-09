@@ -41,7 +41,8 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, content, theme }) 
                                     <img src={content.author.imageUrl} alt={content.author}
                                          className="h-20 w-20 rounded-full bg-gray-50 flex-none"/>
                                 </div>
-                                <div className="">
+
+                                <div className="mr-code-player">
                                     <audio id="my-audio">
                                         <source
                                             src="http://jPlayer.org/audio/mp3/Miaow-07-Bubble.mp3"

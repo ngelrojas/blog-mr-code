@@ -4,7 +4,15 @@ export default {
       './src/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      width:{
+        '990': '990px',
+      },
+      transitionProperty: {
+        'height': 'height',
+        'spacing': 'margin, padding',
+      },
+    },
   },
   plugins: [],
 }
