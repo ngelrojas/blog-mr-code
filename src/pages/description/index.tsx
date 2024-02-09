@@ -4,19 +4,64 @@ import Author from "../../components/author";
 import CategoryTime from "../../components/categoryTime";
 import {ThemeContext} from "../../themeContext";
 import {FaFacebook, FaLinkedin, FaXTwitter, FaYoutube} from "react-icons/fa6";
-import ListRelated from "../../components/listRelated";
+
+import CarrouselRelated from "../../components/carrouselRelated";
 
 // TODO: create a description page
 // no permanent interface
 // const theme = 'light';
-const author = {
-    name: 'John Doe',
+const currentAuthor = {
+    name: 'John Doe Current',
     role: 'Software Engineer',
     href: 'https://www.johndoe.com',
     imageUrl:
         'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-
 }
+
+const currentContent = {
+    title: 'Boost your conversion rate, in the era of CURRENT CONTENT',
+    bannerImg: 'https://picsum.photos/seed/picsum/700/300',
+    description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+}
+
+const author = [
+    {
+    name: 'John Doe 1',
+    role: 'Software Engineer',
+    href: 'https://www.johndoe.com',
+    imageUrl:
+        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+    {
+        name: 'John Doe 2',
+        role: 'Software Engineer',
+        href: 'https://www.johndoe.com',
+        imageUrl:
+            'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+    {
+        name: 'John Doe 3',
+        role: 'Software Engineer',
+        href: 'https://www.johndoe.com',
+        imageUrl:
+            'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+    {
+        name: 'John Doe 4',
+        role: 'Software Engineer',
+        href: 'https://www.johndoe.com',
+        imageUrl:
+            'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+    {
+        name: 'John Doe 5',
+        role: 'Software Engineer 5',
+        href: 'https://www.johndoe.com',
+        imageUrl:
+            'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+]
+
 const categoryTime = {
     date: 'Mar 16, 2021',
     datetime: '2020-03-10',
@@ -24,14 +69,36 @@ const categoryTime = {
 
 }
 
-const content = {
-    title: 'Boost your conversion rate, in the era of AI MORE 7',
-    bannerImg: 'https://picsum.photos/seed/picsum/700/300',
-    description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-}
+const content = [
+    {
+        title: 'Boost your conversion rate, in the era of AI MORE 1',
+        bannerImg: 'https://picsum.photos/seed/picsum/700/300',
+        description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    },
+    {
+        title: 'Boost your conversion rate, in the era of AI MORE 2',
+        bannerImg: 'https://picsum.photos/seed/picsum/700/300',
+        description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    },
+    {
+        title: 'Boost your conversion rate, in the era of AI MORE 3',
+        bannerImg: 'https://picsum.photos/seed/picsum/700/300',
+        description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    },
+    {
+        title: 'Boost your conversion rate, in the era of AI MORE 4',
+        bannerImg: 'https://picsum.photos/seed/picsum/700/300',
+        description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    },
+    {
+        title: 'Boost your conversion rate, in the era of AI MORE 5',
+        bannerImg: 'https://picsum.photos/seed/picsum/700/300',
+        description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    },
+]
 
 // TODO: 1 fix the aside, because when down the page the aside cover the the post related. => DONE
-// TODO: 3 create a carrousel for the post related.
+// TODO: 3 create a carrousel for the post related. => DONE
 // TODO: 4 then continue creating the comments section.
 // TODO: 5 refactor aside to a component.
 const Description:React.FC = () => {
@@ -47,9 +114,9 @@ const Description:React.FC = () => {
             ([entry]) => {
                 if (asideRef.current) {
                     if (entry.isIntersecting) {
-                        asideRef.current.classList.add('opacity-0', 'transition', 'ease-in-out', 'duration-700');
+                        asideRef.current.classList.add('hidden', 'transition', 'ease-in-out', 'duration-700');
                     } else {
-                        asideRef.current.classList.remove('opacity-0', 'transition', 'ease-in-out', 'duration-700');
+                        asideRef.current.classList.remove('hidden', 'transition', 'ease-in-out', 'duration-700');
                     }
                 }
             },
@@ -79,11 +146,11 @@ const Description:React.FC = () => {
 
                     <div className="relative mt-4 flex flex-row items-center">
                         <div className="text-sm leading-6 items-center grow">
-                            <Author author={author} theme={theme}/>
+                            <Author author={currentAuthor} theme={theme}/>
                             <CategoryTime categoryTime={categoryTime} theme={theme}/>
                         </div>
 
-                        <img src={author.imageUrl} alt=""
+                        <img src={currentAuthor.imageUrl} alt=""
                              className="h-16 w-16 rounded-full bg-gray-50 flex-none"/>
                     </div>
 
@@ -137,27 +204,27 @@ const Description:React.FC = () => {
 
                     <div className="description container py-5">
                         <div className="description-title py-4">
-                            <h1>{content.title}</h1>
+                            <h1>{currentContent.title}</h1>
                         </div>
                         <div className="description-banner py-4">
-                            <img src={content.bannerImg} alt={content.title} className="rounded"/>
+                            <img src={currentContent.bannerImg} alt={currentContent.title} className="rounded"/>
                         </div>
                         <div className="description-content py-4">
-                            <p>{content.description}</p>
-                            <p>{content.description}</p>
-                            <p>{content.description}</p>
-                            <p>{content.description}</p>
-                            <p>{content.description}</p>
+                            <p>{currentContent.description}</p>
+                            <p>{currentContent.description}</p>
+                            <p>{currentContent.description}</p>
+                            <p>{currentContent.description}</p>
+                            <p>{currentContent.description}</p>
                         </div>
                         <div className="description-banner py-4">
-                            <img src={content.bannerImg} alt={content.title} className="rounded"/>
+                            <img src={currentContent.bannerImg} alt={currentContent.title} className="rounded"/>
                         </div>
                         <div className="description-content py-4">
-                            <p>{content.description}</p>
-                            <p>{content.description}</p>
-                            <p>{content.description}</p>
-                            <p>{content.description}</p>
-                            <p>{content.description}</p>
+                            <p>{currentContent.description}</p>
+                            <p>{currentContent.description}</p>
+                            <p>{currentContent.description}</p>
+                            <p>{currentContent.description}</p>
+                            <p>{currentContent.description}</p>
                         </div>
 
                     </div>
@@ -203,8 +270,8 @@ const Description:React.FC = () => {
             <div ref={postRelatedRef} className="post-related-mrcode w-full">
                 <div className="carousel-post-mrcode py-4 flex flex-col">
                     <h1 className="ml-7 my-4">Post Related</h1>
-                    <div className="mx-5">
-                        <ListRelated theme={theme} author={author} content={content}/>
+                    <div className="mx-5 grid justify-center">
+                        <CarrouselRelated theme={theme} author={author} content={content}/>
                     </div>
                 </div>
                 <section className="comments-mrcode">

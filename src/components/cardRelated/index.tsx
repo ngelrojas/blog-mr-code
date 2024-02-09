@@ -10,7 +10,7 @@ interface CardRelatedProps {
 }
 const CardRelated:React.FC<CardRelatedProps> = ({theme, author, content}) => {
     return (
-        <div className="mx-1 border related-card-mrcode bg-gray-50 w-full rounded p-1">
+        <div className="related-card-mrcode mx-1 border bg-gray-50 w-4/12 rounded p-1">
             <div className="card-header flex justify-between bg-gray-50 p-1">
                 <div className="author">
                     <Author author={author} theme={theme}/>

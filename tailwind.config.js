@@ -5,6 +5,9 @@ export default {
   ],
   theme: {
     extend: {
+      width:{
+        '990': '990px',
+      },
       transitionProperty: {
         'height': 'height',
         'spacing': 'margin, padding',

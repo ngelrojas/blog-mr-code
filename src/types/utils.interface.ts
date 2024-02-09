@@ -93,3 +93,9 @@ export interface LogoProps {
 export interface ContentFooterProps {
     theme: Theme
 }
+
+export interface ListRelatedProps {
+    theme: Theme;
+    author: any;
+    content: any;
+}
