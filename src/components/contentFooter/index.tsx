@@ -5,12 +5,7 @@ import { FaFacebook } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
-
-
-type Theme = 'light' | 'dark';
-interface ContentFooterProps {
-    theme: Theme
-}
+import { ContentFooterProps } from "../../types/utils.interface";
 
 const ContentFooter:React.FC<ContentFooterProps> = ({theme}) => {
 

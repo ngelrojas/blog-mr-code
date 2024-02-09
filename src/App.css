@@ -247,3 +247,42 @@ main{
     opacity: 0;
     transition: all 5s ease-in-out;
 }
+
+/*slider post related*/
+@keyframes slideIn {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    33% {
+        transform: translateX(.33%);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    33% {
+        transform: translateX(.33%);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(.5%);
+        opacity: 0;
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.5s forwards;
+}
+
+.slide-out {
+    animation: slideOut 0.5s forwards;
+}
