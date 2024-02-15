@@ -105,7 +105,7 @@ const content = [
 
 // TODO: 1 fix the aside, because when down the page the aside cover the the post related. => DONE
 // TODO: 3 create a carrousel for the post related. => DONE
-// TODO: 4 then continue creating the comments section.
+// TODO: 4 then continue creating the comments section. => DONE
 // TODO: 5 refactor aside to a component.
 const Description: React.FC = () => {
   const themeContext = useContext(ThemeContext);
@@ -353,15 +353,84 @@ const Description: React.FC = () => {
             </aside>
           </div>
         </div>
-        <div ref={postRelatedRef} className="post-related-mrcode w-full">
-          <div className="carousel-post-mrcode py-4 flex flex-col">
-            <h1 className="ml-7 my-4">Post Related</h1>
-            <div className="mx-5 grid justify-center">
-              <CarrouselRelated
-                theme={theme}
-                author={author}
-                content={content}
-              />
+
+            <div ref={postRelatedRef} className="post-related-mrcode w-full">
+                <div className="carousel-post-mrcode py-4 flex flex-col">
+                    <div className="mx-5 grid justify-center">
+                    <h1 className="ml-20 pl-2 my-4">Related Post</h1>
+                        <CarrouselRelated theme={theme} author={author} content={content}/>
+                    </div>
+                </div>
+                <section className="comments-mrcode w-full my-20">
+                    <div className="wrapper-comment-box py-4 flex justify-center">
+                        <form action="" className="flex flex-col basis-1/2">
+                            <textarea name="comment-box" id="comment-box" rows={6} className="my-2 comment-box p-2 rounded border border-gray-200" placeholder="Comment here">
+                            </textarea>
+                            <div className="comment-data flex flex-row ">
+                                <input type="email" id="email" className="basis-1/2 my-2 p-1 rounded border border-gray-200" placeholder="Email" />
+                                <input type="text" id="name" className="basis-1/2 mx-1 my-2 p-1 rounded border border-gray-200" placeholder="First Name" />
+                                <input type="text" id="last-name" className="basis-1/2 my-2 p-1 rounded border border-gray-200" placeholder="Last Name" />
+                            </div>
+                            <button type="submit" className="my-2 p-1 rounded border border-gray-200 bg-blue-400 text-white">Comment</button>
+                        </form>
+                    </div>
+
+                    <div className="comment-list py-4 flex justify-center">
+                        <div className="comment-list-wrapper flex flex-col w-8/12">
+                            <div className="comment-list-item py-20 flex flex-col justify-center">
+                                <h1 className="">Comments</h1>
+                                <div className="comment-item my-5 w-10/12">
+                                    <div className="comment-item-header">
+                                        <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" className="h-16 w-16 rounded-full bg-gray-50 flex-none"/>
+                                        <div className="comment-item-header-data">
+                                            <h1>John Doe</h1>
+                                            <p>March 16, 2021</p>
+                                        </div>
+                                    </div>
+                                    <div className="comment-item-content">
+                                        <p>Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                                    </div>
+                                    <div className="comment-item-nested py-2 px-2 my-3  ml-8 w-9/12">
+                                        <div className="comment-body border-l-2 border-l-blue-500 py-3 px-3">
+                                            <div className="comment-item-header">
+                                                <img
+                                                    src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                    alt="" className="h-16 w-16 rounded-full bg-gray-50 flex-none"/>
+                                                <div className="comment-item-header-data">
+                                                    <h1>John Doe</h1>
+                                                    <p>March 16, 2021</p>
+                                                </div>
+                                            </div>
+                                            <div className="comment-item-content">
+                                                <p>Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam
+                                                    vitae illo. Non aliquid explicabo necessitatibus unde. Sed
+                                                    exercitationem placeat consectetur nulla deserunt vel. Iusto
+                                                    corrupti dicta.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="comment-item my-5 w-10/12">
+                                    <div className="comment-item-header">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            alt="" className="h-16 w-16 rounded-full bg-gray-50 flex-none"/>
+                                        <div className="comment-item-header-data">
+                                            <h1>John Doe</h1>
+                                            <p>March 16, 2021</p>
+                                        </div>
+                                    </div>
+                                    <div className="comment-item-content">
+                                        <p>Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae
+                                            illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
           </div>
           <section className="comments-mrcode">
