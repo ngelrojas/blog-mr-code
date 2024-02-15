@@ -7,6 +7,9 @@ import { ThemeContext } from '../../themeContext';
 import { FaFacebook, FaLinkedin, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 
 import CarrouselRelated from '../../components/carrouselRelated';
+import CommentForm from '../../components/commentForm';
+import CardComments from '../../components/cardComment';
+import AsideContent from '../../components/asideContent';
 
 // TODO: create a description page
 // no permanent interface
@@ -296,61 +299,7 @@ const Description: React.FC = () => {
           </div>
 
           <div className="flex justify-end">
-            <aside ref={asideRef} className="fixed z-50 basis-1/6 w-1/6">
-              <div className="py-5 border-b aside-header">
-                <a href="/home">
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div className="aside-content">
-                <h1 className="py-3 text-2xl">
-                  <p className="underline">Content</p>
-                </h1>
-                <ul className="ml-2">
-                  <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
-                    <a
-                      href="#"
-                      className="transition-all ease-in-out delay-150 duration-300 hover:pl-2"
-                    >
-                      This is a title a little large what you think more lettes
-                      one
-                    </a>
-                  </li>
-                  <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
-                    <a
-                      href="#"
-                      className="transition-all ease-in-out delay-150 duration-300 hover:pl-2"
-                    >
-                      This is a title a little large what you think more
-                      letters?
-                    </a>
-                  </li>
-                  <li className="border-l-2 border-l-gray-500 pl-1 my-2 hover:text-blue-400 hover:border-l-blue-500">
-                    <a
-                      href="#"
-                      className="transition-all ease-in-out delay-150 duration-300 hover:pl-2"
-                    >
-                      Three title
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="my-5 aside-footer">
-                <h1>player</h1>
-              </div>
-            </aside>
+            <AsideContent asideRef={asideRef} />
           </div>
         </div>
 
@@ -366,115 +315,21 @@ const Description: React.FC = () => {
             </div>
           </div>
           <section className="comments-mrcode w-full my-20">
-            <div className="wrapper-comment-box py-4 flex justify-center">
-              <form action="" className="flex flex-col basis-1/2">
-                <textarea
-                  name="comment-box"
-                  id="comment-box"
-                  rows={6}
-                  className="my-2 comment-box p-2 rounded border border-gray-200"
-                  placeholder="Comment here"
-                ></textarea>
-                <div className="comment-data flex flex-row ">
-                  <input
-                    type="email"
-                    id="email"
-                    className="basis-1/2 my-2 p-1 rounded border border-gray-200"
-                    placeholder="Email"
-                  />
-                  <input
-                    type="text"
-                    id="name"
-                    className="basis-1/2 mx-1 my-2 p-1 rounded border border-gray-200"
-                    placeholder="First Name"
-                  />
-                  <input
-                    type="text"
-                    id="last-name"
-                    className="basis-1/2 my-2 p-1 rounded border border-gray-200"
-                    placeholder="Last Name"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="my-2 p-1 rounded border border-gray-200 bg-blue-400 text-white"
-                >
-                  Comment
-                </button>
-              </form>
-            </div>
+            <CommentForm />
 
             <div className="comment-list py-4 flex justify-center">
               <div className="comment-list-wrapper flex flex-col w-8/12">
                 <div className="comment-list-item py-20 flex flex-col justify-center">
                   <h1 className="">Comments</h1>
-                  <div className="comment-item my-5 w-10/12">
-                    <div className="comment-item-header">
-                      <img
-                        src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                        className="h-16 w-16 rounded-full bg-gray-50 flex-none"
-                      />
-                      <div className="comment-item-header-data">
-                        <h1>John Doe</h1>
-                        <p>March 16, 2021</p>
-                      </div>
-                    </div>
-                    <div className="comment-item-content">
-                      <p>
-                        Illo sint voluptas. Error voluptates culpa eligendi. Hic
-                        vel totam vitae illo. Non aliquid explicabo
-                        necessitatibus unde. Sed exercitationem placeat
-                        consectetur nulla deserunt vel. Iusto corrupti dicta.
-                      </p>
-                    </div>
+
+                  <div className="comment-item-nested-list my-5 w-10/12">
+                    <CardComments />
                     <div className="comment-item-nested py-2 px-2 my-3  ml-8 w-9/12">
-                      <div className="comment-body border-l-2 border-l-blue-500 py-3 px-3">
-                        <div className="comment-item-header">
-                          <img
-                            src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                            className="h-16 w-16 rounded-full bg-gray-50 flex-none"
-                          />
-                          <div className="comment-item-header-data">
-                            <h1>John Doe</h1>
-                            <p>March 16, 2021</p>
-                          </div>
-                        </div>
-                        <div className="comment-item-content">
-                          <p>
-                            Illo sint voluptas. Error voluptates culpa eligendi.
-                            Hic vel totam vitae illo. Non aliquid explicabo
-                            necessitatibus unde. Sed exercitationem placeat
-                            consectetur nulla deserunt vel. Iusto corrupti
-                            dicta.
-                          </p>
-                        </div>
-                      </div>
+                      <CardComments />
                     </div>
                   </div>
 
-                  <div className="comment-item my-5 w-10/12">
-                    <div className="comment-item-header">
-                      <img
-                        src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                        className="h-16 w-16 rounded-full bg-gray-50 flex-none"
-                      />
-                      <div className="comment-item-header-data">
-                        <h1>John Doe</h1>
-                        <p>March 16, 2021</p>
-                      </div>
-                    </div>
-                    <div className="comment-item-content">
-                      <p>
-                        Illo sint voluptas. Error voluptates culpa eligendi. Hic
-                        vel totam vitae illo. Non aliquid explicabo
-                        necessitatibus unde. Sed exercitationem placeat
-                        consectetur nulla deserunt vel. Iusto corrupti dicta.
-                      </p>
-                    </div>
-                  </div>
+                  <CardComments />
                 </div>
               </div>
             </div>
