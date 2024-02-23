@@ -1,10 +1,12 @@
 interface AsideContentProps {
-  asideRef: React.RefObject<HTMLElement>;
+  theme: string;
 }
 
-const AsideContent: React.FC<AsideContentProps> = ({ asideRef }) => {
+const AsideContent: React.FC<AsideContentProps> = ({ theme }) => {
   return (
-    <aside ref={asideRef} className="fixed z-50 basis-1/6 w-1/6">
+    <aside
+      className={`fixed z-50 basis-1/6 w-64 ${theme === 'light' ? 'text-black' : 'text-white'}`}
+    >
       <div className="py-5 border-b aside-header">
         <a href="/home">
           <svg

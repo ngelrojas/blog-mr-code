@@ -11,9 +11,7 @@ import CommentForm from '../../components/commentForm';
 import CardComments from '../../components/cardComment';
 import AsideContent from '../../components/asideContent';
 
-// TODO: create a description page
-// no permanent interface
-// const theme = 'light';
+//TODO: in the commentForm, I need pass the url to go to the backend, in each commentForm.
 const currentAuthor = {
   name: 'John Doe Current',
   role: 'Software Engineer',
@@ -26,46 +24,15 @@ const currentContent = {
   title: 'Boost your conversion rate, in the era of CURRENT CONTENT',
   bannerImg: 'https://picsum.photos/seed/picsum/700/300',
   description:
-    'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.\n' +
+    'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.\n' +
+    'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.\n' +
+    'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.\n' +
+    'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.\n' +
+    'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.\n' +
+    'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.\n' +
+    'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.\n',
 };
-
-const author = [
-  {
-    name: 'John Doe 1',
-    role: 'Software Engineer',
-    href: 'https://www.johndoe.com',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'John Doe 2',
-    role: 'Software Engineer',
-    href: 'https://www.johndoe.com',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'John Doe 3',
-    role: 'Software Engineer',
-    href: 'https://www.johndoe.com',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'John Doe 4',
-    role: 'Software Engineer',
-    href: 'https://www.johndoe.com',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'John Doe 5',
-    role: 'Software Engineer 5',
-    href: 'https://www.johndoe.com',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-];
 
 const categoryTime = {
   date: 'Mar 16, 2021',
@@ -73,43 +40,133 @@ const categoryTime = {
   category: { title: 'React-JS', slug: 'react-js' },
 };
 
-const content = [
+const relatedPost = [
   {
     title: 'Boost your conversion rate, in the era of AI MORE 1',
     bannerImg: 'https://picsum.photos/seed/picsum/700/300',
     description:
       'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    summary: '',
+    href: 'https://www.johndoe.com',
+    author: {
+      name: 'John Doe 1',
+      role: 'Software Engineer',
+      href: 'https://www.johndoe.com',
+      imageUrl:
+        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
   },
   {
     title: 'Boost your conversion rate, in the era of AI MORE 2',
     bannerImg: 'https://picsum.photos/seed/picsum/700/300',
     description:
       'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    summary: '',
+    href: 'https://www.johndoe.com',
+    author: {
+      name: 'John Doe 2',
+      role: 'Software Engineer 2',
+      href: 'https://www.johndoe.com',
+      imageUrl:
+        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
   },
   {
     title: 'Boost your conversion rate, in the era of AI MORE 3',
     bannerImg: 'https://picsum.photos/seed/picsum/700/300',
     description:
       'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    summary: '',
+    href: 'https://www.johndoe.com',
+    author: {
+      name: 'John Doe 3',
+      role: 'Software Engineer',
+      href: 'https://www.johndoe.com',
+      imageUrl:
+        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
   },
   {
     title: 'Boost your conversion rate, in the era of AI MORE 4',
     bannerImg: 'https://picsum.photos/seed/picsum/700/300',
     description:
       'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    summary: '',
+    href: 'https://www.johndoe.com',
+    author: {
+      name: 'John Doe 4',
+      role: 'Software Engineer',
+      href: 'https://www.johndoe.com',
+      imageUrl:
+        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
   },
   {
     title: 'Boost your conversion rate, in the era of AI MORE 5',
     bannerImg: 'https://picsum.photos/seed/picsum/700/300',
     description:
       'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    summary: '',
+    href: 'https://www.johndoe.com',
+    author: {
+      name: 'John Doe 5',
+      role: 'Software Engineer',
+      href: 'https://www.johndoe.com',
+      imageUrl:
+        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
   },
 ];
 
-// TODO: 1 fix the aside, because when down the page the aside cover the the post related. => DONE
-// TODO: 3 create a carrousel for the post related. => DONE
-// TODO: 4 then continue creating the comments section. => DONE
-// TODO: 5 refactor aside to a component.
+const comments = [
+  {
+    name: 'John Doe 1',
+    date: 'March 16, 2021',
+    img: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    comment:
+      'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    nestedComments: [
+      {
+        name: 'John Doe 1 nested',
+        date: 'March 16, 2021',
+        img: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        comment:
+          'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+      },
+      {
+        name: 'John Doe 2 nested',
+        date: 'March 16, 2020',
+        img: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        comment:
+          'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+      },
+    ],
+  },
+  {
+    name: 'John Doe 2',
+    date: 'March 16, 2021',
+    img: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    comment:
+      'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+    nestedComments: [
+      {
+        name: 'John Doe 2 nested',
+        date: 'March 16, 2021',
+        img: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        comment:
+          'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+      },
+    ],
+  },
+  {
+    name: 'John Doe 3',
+    date: 'March 16, 2021',
+    img: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    comment:
+      'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+  },
+];
+
 const Description: React.FC = () => {
   const themeContext = useContext(ThemeContext);
   if (!themeContext)
@@ -120,6 +177,8 @@ const Description: React.FC = () => {
   const asideRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const currentPostRelatedRef = postRelatedRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (asideRef.current) {
@@ -147,16 +206,16 @@ const Description: React.FC = () => {
       },
     );
 
-    if (postRelatedRef.current) {
-      observer.observe(postRelatedRef.current);
+    if (currentPostRelatedRef) {
+      observer.observe(currentPostRelatedRef);
     }
 
     return () => {
-      if (postRelatedRef.current) {
-        observer.unobserve(postRelatedRef.current);
+      if (currentPostRelatedRef) {
+        observer.unobserve(currentPostRelatedRef);
       }
     };
-  }, []);
+  }, [postRelatedRef, asideRef]);
 
   return (
     <WebSiteLayout>
@@ -263,7 +322,9 @@ const Description: React.FC = () => {
               </div>
             </div>
 
-            <div className="description container py-5">
+            <div
+              className={`description container py-5 ${theme === 'light' ? 'text-black' : 'text-white'}`}
+            >
               <div className="description-title py-4">
                 <h1>{currentContent.title}</h1>
               </div>
@@ -276,60 +337,55 @@ const Description: React.FC = () => {
               </div>
               <div className="description-content py-4">
                 <p>{currentContent.description}</p>
-                <p>{currentContent.description}</p>
-                <p>{currentContent.description}</p>
-                <p>{currentContent.description}</p>
-                <p>{currentContent.description}</p>
-              </div>
-              <div className="description-banner py-4">
-                <img
-                  src={currentContent.bannerImg}
-                  alt={currentContent.title}
-                  className="rounded"
-                />
-              </div>
-              <div className="description-content py-4">
-                <p>{currentContent.description}</p>
-                <p>{currentContent.description}</p>
-                <p>{currentContent.description}</p>
-                <p>{currentContent.description}</p>
-                <p>{currentContent.description}</p>
               </div>
             </div>
           </div>
 
-          <div className="flex justify-end">
-            <AsideContent asideRef={asideRef} />
+          <div ref={asideRef} className="flex justify-end">
+            <AsideContent theme={theme} />
           </div>
         </div>
 
-        <div ref={postRelatedRef} className="post-related-mrcode w-full">
+        <div
+          ref={postRelatedRef}
+          className={`post - related - mrcode w-full ${theme === 'light' ? 'text-black' : 'text-white'}`}
+        >
           <div className="carousel-post-mrcode py-4 flex flex-col">
             <div className="mx-5 grid justify-center">
               <h1 className="ml-20 pl-2 my-4">Related Post</h1>
-              <CarrouselRelated
-                theme={theme}
-                author={author}
-                content={content}
-              />
+
+              <CarrouselRelated theme={theme} content={relatedPost} />
             </div>
           </div>
           <section className="comments-mrcode w-full my-20">
-            <CommentForm />
+            <CommentForm theme={theme} />
 
             <div className="comment-list py-4 flex justify-center">
               <div className="comment-list-wrapper flex flex-col w-8/12">
                 <div className="comment-list-item py-20 flex flex-col justify-center">
                   <h1 className="">Comments</h1>
 
-                  <div className="comment-item-nested-list my-5 w-10/12">
-                    <CardComments />
-                    <div className="comment-item-nested py-2 px-2 my-3  ml-8 w-9/12">
-                      <CardComments />
-                    </div>
+                  <div className="comment-item-nested-list my-3 w-10/12">
+                    {comments.map((author, index) => (
+                      <div key={index}>
+                        <CardComments author={author} theme={theme} />
+                        {author.nestedComments &&
+                          author.nestedComments.map(
+                            (nestedComment, nestedIndex) => (
+                              <div
+                                key={nestedIndex}
+                                className="comment-item-nested border-l-2 rounded-l border-l-blue-500  ml-8 w-10/12"
+                              >
+                                <CardComments
+                                  author={nestedComment}
+                                  theme={theme}
+                                />
+                              </div>
+                            ),
+                          )}
+                      </div>
+                    ))}
                   </div>
-
-                  <CardComments />
                 </div>
               </div>
             </div>

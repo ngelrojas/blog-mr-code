@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-const CommentForm = () => {
+interface CommentFormProps {
+  theme: string;
+}
+
+const CommentForm: React.FC<CommentFormProps> = ({ theme }) => {
   const [comment, setComment] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -14,7 +18,9 @@ const CommentForm = () => {
   };
 
   return (
-    <div className="wrapper-comment-box py-4 flex justify-center">
+    <div
+      className={`wrapper - comment - box py-4 flex justify-center ${theme === 'light' ? 'text-black' : 'text-black'}`}
+    >
       <form
         action=""
         className="flex flex-col basis-1/2"
