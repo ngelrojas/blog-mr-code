@@ -80,9 +80,15 @@ export interface AuthorProps {
   imageUrl?: string;
 }
 
+export interface SocialMediaProps {
+  href?: string;
+  name?: string;
+}
+
 export interface AuthorPropsI {
   author?: AuthorProps;
   theme: Theme;
+  socialMedia?: SocialMediaProps[];
 }
 
 export interface DescriptionTitleProps {

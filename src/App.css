@@ -1,26 +1,27 @@
 /*content page*/
 
-main{
+main {
     min-height: 100dvh;
 }
 
 /*cards*/
-.card-spaces{
+.card-spaces {
     margin-top: 5%;
     margin-bottom: 5%;
 }
 
 /*card list*/
-.card-list{
+.card-list {
     width: 80%;
     margin: auto;
 }
 
 /*styles footer*/
 
-.footer-oval{
+.footer-oval {
     position: relative;
 }
+
 .custom-shape-divider-top-1705452502 {
     position: absolute;
     top: 0;
@@ -46,11 +47,12 @@ main{
 }
 
 /*display button category*/
-.fadeIn{
+.fadeIn {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
-.fadeIn.show{
+
+.fadeIn.show {
     opacity: 1;
 }
 
@@ -71,6 +73,7 @@ main{
         transform: translateY(10px);
     }
 }
+
 @keyframes slide-bottom {
     0% {
         -webkit-transform: translateY(0);
@@ -83,22 +86,26 @@ main{
 }
 
 /*background pages*/
-.bg-pages{
+.bg-pages {
     background: linear-gradient(25deg, rgba(15, 23, 42, 1) 45%, rgba(23, 37, 61, 1) 62%, rgba(15, 23, 42, 1) 71%);
 }
-.bg-pages-light{
+
+.bg-pages-light {
     background: linear-gradient(25deg, rgba(30, 41, 59, 0) 33%, rgba(30, 41, 59, 0.04) 59%, rgba(30, 41, 59, 0) 84%);
 }
+
 /*mode light and dark*/
 /*mode light*/
-.text-light{
+.text-light {
     color: #0A66C2;
     position: relative;
 }
-.help-you{
+
+.help-you {
     position: relative;
 }
-.help-you:after{
+
+.help-you:after {
     display: flex;
     content: "You";
     position: absolute;
@@ -108,10 +115,12 @@ main{
     width: 92%;
     justify-content: flex-end;
 }
-.help-bot{
+
+.help-bot {
     position: relative;
 }
-.help-bot:after{
+
+.help-bot:after {
     display: flex;
     content: "helpBot";
     position: absolute;
@@ -120,38 +129,43 @@ main{
     font-size: 10px;
     width: 90%;
 }
+
 /*mode dark*/
-.text-dark{
+.text-dark {
     color: #ffffff;
 }
-.text-primary-dark{
+
+.text-primary-dark {
     color: #65B0F6;
 }
 
 /*background cards*/
-.bg-cards{
+.bg-cards {
     background: #0F172A;
 }
 
 /*background header*/
-.bg-header{
+.bg-header {
     background: #0F172A;
 }
 
-.border-nav-b{
+.border-nav-b {
     border-bottom: 0.4px solid #565656;
 }
 
-.border-cards{
+.border-cards {
     border: 0.4px solid #474E54;
 }
-.border-cards-light{
+
+.border-cards-light {
     border: 0.4px solid #D1D2D4;
 }
-.bg-footer-light{
+
+.bg-footer-light {
     background: #010A13;
 }
-.bg-footer-dark{
+
+.bg-footer-dark {
     background: #262E3F;
 }
 
@@ -168,6 +182,7 @@ main{
         opacity: 1;
     }
 }
+
 @keyframes fade-in-top {
     0% {
         -webkit-transform: translateY(-50px);
@@ -204,6 +219,7 @@ main{
         opacity: 1;
     }
 }
+
 @keyframes puff-in-hor {
     0% {
         -webkit-transform: scaleX(1);
@@ -285,4 +301,9 @@ main{
 
 .slide-out {
     animation: slideOut 0.5s forwards;
+}
+
+/*aspect ratio*/
+.aspect-custom {
+    aspect-ratio: 7/3;
 }

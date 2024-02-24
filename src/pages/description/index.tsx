@@ -4,12 +4,11 @@ import { WebSiteLayout } from '../../layouts/webSite';
 import Author from '../../components/author';
 import CategoryTime from '../../components/categoryTime';
 import { ThemeContext } from '../../themeContext';
-import { FaFacebook, FaLinkedin, FaXTwitter, FaYoutube } from 'react-icons/fa6';
-
 import CarrouselRelated from '../../components/carrouselRelated';
 import CommentForm from '../../components/commentForm';
 import CardComments from '../../components/cardComment';
 import AsideContent from '../../components/asideContent';
+import SocialNetworks from '../../components/socialNetworks';
 
 //TODO: in the commentForm, I need pass the url to go to the backend, in each commentForm.
 const currentAuthor = {
@@ -18,6 +17,24 @@ const currentAuthor = {
   href: 'https://www.johndoe.com',
   imageUrl:
     'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  socialMedia: [
+    {
+      href: 'https://www.facebook.com/johndoe',
+      name: 'Facebook',
+    },
+    {
+      href: 'https://www.instagram.com/johndoe',
+      name: 'Instagram',
+    },
+    {
+      href: 'https://www.twitter.com/johndoe',
+      name: 'Twitter',
+    },
+    {
+      href: 'https://www.likedin.com/johndoe',
+      name: 'LinkedIn',
+    },
+  ],
 };
 
 const currentContent = {
@@ -236,90 +253,10 @@ const Description: React.FC = () => {
             </div>
 
             <div className="mrcode-icon-social-networks py-5">
-              <div className="grid">
-                <ul
-                  className={`flex gap-4 md:gap-5 items-center ${theme === 'light' ? 'text-black' : 'text-white'}`}
-                >
-                  <li>
-                    <a href="/facebook">
-                      <FaFacebook size={25} />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/twitter">
-                      <FaXTwitter size={20} />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/linkedin">
-                      <FaLinkedin size={25} />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/youtube">
-                      <FaYoutube size={35} />
-                    </a>
-                  </li>
-                  <li>
-                    <div className="mr-code-player grid items-center">
-                      <audio id="my-audio">
-                        <source
-                          src="http://jPlayer.org/audio/mp3/Miaow-07-Bubble.mp3"
-                          type="audio/mpeg"
-                        />
-                        <source
-                          src="http://jPlayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-                          type="audio/ogg"
-                        />
-
-                        <a href="audiofile.mp3">audiofile.mp3</a>
-                      </audio>
-
-                      <div id="controls">
-                        <button
-                          id="play"
-                          className="-hidden flex justify-items-center"
-                        >
-                          <svg
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className={`w-6 h-6 ${theme === 'light' ? 'text-black' : 'text-white'}`}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
-                            />
-                          </svg>
-                        </button>
-                        <button
-                          id="pause"
-                          className="hidden flex justify-items-center"
-                        >
-                          <svg
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M15.75 5.25v13.5m-7.5-13.5v13.5"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                      <div id="progress">
-                        <div id="bar"></div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+              <SocialNetworks
+                socialMedia={currentAuthor.socialMedia}
+                theme={theme}
+              />
             </div>
 
             <div
@@ -332,7 +269,7 @@ const Description: React.FC = () => {
                 <img
                   src={currentContent.bannerImg}
                   alt={currentContent.title}
-                  className="rounded"
+                  className="rounded aspect-custom w-full h-96 object-cover object-center"
                 />
               </div>
               <div className="description-content py-4">
