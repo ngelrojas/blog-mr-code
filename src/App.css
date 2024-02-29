@@ -307,3 +307,11 @@ main {
 .aspect-custom {
     aspect-ratio: 7/3;
 }
+
+/*responsive style*/
+@media (max-width: 640px) {
+    .chat-bot-bottom {
+        bottom: 4% !important;
+        left: 55% !important;
+    }
+}

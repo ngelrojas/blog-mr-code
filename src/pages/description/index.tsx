@@ -7,10 +7,14 @@ import { ThemeContext } from '../../themeContext';
 import CarrouselRelated from '../../components/carrouselRelated';
 import CommentForm from '../../components/commentForm';
 import CardComments from '../../components/cardComment';
-import AsideContent from '../../components/asideContent';
 import SocialNetworks from '../../components/socialNetworks';
+// import AsideContent from '../../components/asideContent';
 
 //TODO: in the commentForm, I need pass the url to go to the backend, in each commentForm.
+//TODO: the carrousel component should be a responsive component,
+// the component aside is disable and chatbot component is disable
+// SUGGESTION: the arrows of the carrousel should be up or down, when is in mobile
+
 const currentAuthor = {
   name: 'John Doe Current',
   role: 'Software Engineer',
@@ -238,7 +242,7 @@ const Description: React.FC = () => {
     <WebSiteLayout>
       <div className="container pt-28">
         <div className="flex flex-row">
-          <div className="mx-auto max-w-2xl py-5 sm:px-10 lg:px-12 basis-1/2">
+          <div className="mx-auto max-w-2xl py-5 sm:py-10 lg:px-12 basis-1/2">
             <div className="relative mt-4 flex flex-row items-center">
               <div className="text-sm leading-6 items-center grow">
                 <Author author={currentAuthor} theme={theme} />
@@ -279,18 +283,19 @@ const Description: React.FC = () => {
           </div>
 
           <div ref={asideRef} className="flex justify-end">
-            <AsideContent theme={theme} />
+            {/*<AsideContent theme={theme} />*/}
           </div>
         </div>
 
         <div
           ref={postRelatedRef}
-          className={`post - related - mrcode w-full ${theme === 'light' ? 'text-black' : 'text-white'}`}
+          className={`post-related-mrcode w-full ${theme === 'light' ? 'text-black' : 'text-white'}`}
         >
-          <div className="carousel-post-mrcode py-4 flex flex-col">
-            <div className="mx-5 grid justify-center">
-              <h1 className="ml-20 pl-2 my-4">Related Post</h1>
-
+          <div className="carousel-post-mrcode py-4 flex md:flex-col sm:flex-row">
+            <div className="mx-5 grid justify-center md:w-auto sm:w-auto sm:justify-items-center">
+              <h1 className="ml-20 pl-2 my-4 md:w-94 md:flex md:justify-start sm:w-62">
+                Related Post
+              </h1>
               <CarrouselRelated theme={theme} content={relatedPost} />
             </div>
           </div>

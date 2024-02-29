@@ -17,7 +17,7 @@ const CardRelated: React.FC<CardRelatedProps> = ({
 }) => {
   return (
     <div
-      className={`related - card - mrcode mx-1 border w-4/12 rounded p-1 ${theme === 'light' ? 'bg-gray-50' : 'bg-cards'}`}
+      className={`related-card-mrcode mx-1 border sm:w-auto w-4/12 sm:my-2 rounded p-1 ${theme === 'light' ? 'bg-gray-50' : 'bg-cards'}`}
     >
       <div className="card-header flex justify-between p-1">
         <div className="author">

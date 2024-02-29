@@ -19,7 +19,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ theme }) => {
 
   return (
     <div
-      className={`wrapper - comment - box py-4 flex justify-center ${theme === 'light' ? 'text-black' : 'text-black'}`}
+      className={`wrapper-comment-box py-4 flex justify-center ${theme === 'light' ? 'text-black' : 'text-black'}`}
     >
       <form
         action=""
@@ -33,7 +33,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ theme }) => {
           className="my-2 comment-box p-2 rounded border border-gray-200"
           placeholder="Comment here"
         ></textarea>
-        <div className="comment-data flex flex-row ">
+        <div className="comment-data flex md:flex-row sm:flex-col">
           <input
             type="email"
             id="email"
@@ -42,8 +42,8 @@ const CommentForm: React.FC<CommentFormProps> = ({ theme }) => {
           />
           <input
             type="text"
-            id="name"
-            className="basis-1/2 mx-1 my-2 p-1 rounded border border-gray-200"
+            id="first-name"
+            className="basis-1/2 my-2 p-1 md:mx-2 rounded border border-gray-200"
             placeholder="First Name"
           />
           <input

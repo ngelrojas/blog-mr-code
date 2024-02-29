@@ -42,7 +42,7 @@ const CarrouselRelated: React.FC<ListRelatedProps> = ({ theme, content }) => {
   };
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row md:w-full sm:w-9/12">
       <div className="flex items-center">
         <button
           type="button"
@@ -64,7 +64,11 @@ const CarrouselRelated: React.FC<ListRelatedProps> = ({ theme, content }) => {
           </svg>
         </button>
       </div>
-      <div className={`flex w-990 ${animationClass}`}>{displayCards}</div>
+      <div
+        className={`md:flex md:flex-row w-990 sm:flex-col sm:w-auto ${animationClass}`}
+      >
+        {displayCards}
+      </div>
       <div className="flex items-center">
         <button
           type="button"
