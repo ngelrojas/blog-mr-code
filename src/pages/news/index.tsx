@@ -1,12 +1,13 @@
-import ListCard from '../listCard';
 import { useContext } from 'react';
 import { ThemeContext } from '../../themeContext';
+import { WebSiteLayout } from '../../layouts/webSite';
+import ListCard from '../../components/listCard';
 
 const bannerUrl = 'https://picsum.photos/seed/picsum/700/300';
 const __posts = [
   {
     id: 1,
-    title: 'Boost your conversion rate 1',
+    title: 'NEWS ONE 1',
     href: '#',
     description:
       'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
@@ -153,17 +154,21 @@ const __posts = [
   },
 ];
 
-export default function ContentPage() {
+const PageNews = () => {
   const themeContext = useContext(ThemeContext);
   if (!themeContext)
     throw new Error('useThemeContext must be used within a ThemeProvider');
   const { theme } = themeContext;
 
   return (
-    <main>
-      <div className="mx-auto max-w-5xl py-10 sm:px-10 lg:px-12">
-        <ListCard __posts={__posts} theme={theme} />
-      </div>
-    </main>
+    <WebSiteLayout>
+      <main>
+        <div className="mx-auto max-w-5xl py-10 sm:px-10 lg:px-12">
+          <ListCard __posts={__posts} theme={theme} />
+        </div>
+      </main>
+    </WebSiteLayout>
   );
-}
+};
+
+export default PageNews;

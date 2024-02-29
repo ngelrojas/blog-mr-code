@@ -1,18 +1,14 @@
-import './App.css'
-import { RouterProvider } from "react-router-dom";
-import { webSiteRoutes } from "./routes/webSite";
-import { WebSiteLayout } from "./layouts/webSite";
-import { ThemeProvider} from "./themeContext";
+import './App.css';
+import { RouterProvider } from 'react-router-dom';
+import { mainRoutes } from './routes/webSite';
+import { ThemeProvider } from './themeContext';
 
 function App() {
-
   return (
-      <ThemeProvider>
-        <WebSiteLayout>
-            <RouterProvider router={webSiteRoutes} />
-        </WebSiteLayout>
-      </ThemeProvider>
-  )
+    <ThemeProvider>
+      <RouterProvider router={mainRoutes} />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
